@@ -23,22 +23,30 @@ This document defines the quality bars and testing strategies for the SANIMEX pr
 ### 3.1 Routing & Navigation
 - [ ] **SPA Reload**: Reloading a sub-route (e.g., `/acacia-gum`) must serve the application correctly (no 404).
 - [ ] **Direct Access**: Users can land on any defined route from a search engine.
+- [ ] **Icon Navigation**: Verify that the SANIMEX logo and all footer social/contact icons are "Clickable" and redirect correctly.
 
-### 3.2 i18n & RTL (Arabic/French/English)
-- [ ] **Directionality**: RTL (`dir="rtl"`) is applied to `<html>` and localized numbers are formatted correctly.
-- [ ] **BP/Phone Integrity**: Verify that numeric fragments (e.g., `+235`, `492`) do not flip visually.
+### 3.2 Responsive & Multi-Platform (Web/Mobile/iOS/Android)
+- [ ] **Viewport Testing**: Run E2E tests for `iPhone X` (mobile), `iPad` (tablet), and `Desktop` viewports.
+- [ ] **Mobile-Only Elements**: Sidenav hamburger menu must be clickable on mobile and invisible on desktop.
+- [ ] **iOS/Android Webview**: Verify text rendering and button clickability on mobile Chrome/Safari browsers.
+- [ ] **Visual Regressions**: Take visual snapshots (e.g., Percy) for critical pages on all 3 breakpoints to ensure zero layout shifting.
 
-### 3.3 Mobile UX
-- [ ] **Hamburger Menu**: Fully accessible on screens < 768px.
-- [ ] **Touch Targets**: All interactive elements are minimum 44x44px.
+### 3.3 Internationalization (i18n) & RTL
+- [ ] **Language Toggle**: Verify that clicking the language switcher actually re-renders the UI in the target language.
+- [ ] **Arabic RTL Formatting**: 
+    - Verify `dir="rtl"` on `<html>`.
+    - **Numeric Integrity**: Explicitly test that `BP 492` and `+235 ...` do not appear "flipped" in Arabic.
+- [ ] **Full Translation Coverage**: Verify that 100% of labels (Footer, Navbar, Buttons) change when switching between EN/FR/AR.
 
-### 3.4 Security & Performance
-- [ ] **HTTPS Enforcement**: Verified via Cloudflare and GitHub Pages settings.
-- [ ] **Asset Optimization**: Hero images must be optimized and served via the built pipeline.
+### 3.4 Interactive UI Elements (Icons & Buttons)
+- [ ] **Data-Test Attributes**: Use `data-test` attributes for all clickable icons to ensure tests don't break when CSS changes.
+- [ ] **Hover/Active States**: Icons must show visual feedback on hover/tap.
+- [ ] **Broken Links**: Automated crawler to ensure all icons link to valid internal or external destinations.
 
 ## 4. CI/CD Governance
 The `.github/workflows/deploy.yml` must enforce:
 1. `npm ci`: Clean install.
 2. `npm run lint`: Zero linting errors.
-3. `npm run build`: Successful compilation.
-4. `404.html` Generation: Automated copy of `index.html` for routing.
+3. `npm test`: Pass all unit tests.
+4. `npm run e2e`: Pass all Playwright/Cypress flows across mobile and desktop viewports.
+5. `404.html` Generation: Automated copy of `index.html` for routing.
