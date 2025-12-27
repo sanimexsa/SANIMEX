@@ -31,7 +31,6 @@ test.describe('SANIMEX Multi-lingual Matrix', () => {
                 }
 
                 // Verify Navbar translation (checking a known key like "Contact")
-                // Note: Using text content depends on actual translations
                 const contactBtn = p.locator('a[href="/contact"]').first();
                 if (lang === 'en') await expect(contactBtn).toContainText('Contact');
                 if (lang === 'fr') await expect(contactBtn).toContainText('Contact');
@@ -45,6 +44,13 @@ test.describe('SANIMEX Multi-lingual Matrix', () => {
 
                 await p.waitForLoadState('networkidle');
                 expect(logs).toEqual([]);
+
+                // Step 2: Visual Verification (Screenshots)
+                // Using path-friendly names: home-en-desktop.png
+                const size = p.viewportSize();
+                const deviceType = size ? (size.width < 768 ? 'mobile' : 'desktop') : 'unknown';
+                const screenshotName = `${page.name.toLowerCase().replace(/\s+/g, '-')}-${lang}-${deviceType}`;
+                await p.screenshot({ path: `tests/screenshots/${screenshotName}.png`, fullPage: true });
             });
         }
     }
