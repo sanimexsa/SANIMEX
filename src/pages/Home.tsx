@@ -34,6 +34,12 @@ const partners = [
     },
 
     {
+        name: 'AfDB',
+        nameAr: 'بنك التنمية الأفريقي',
+        nameFr: 'BAD',
+        logo: '/logos/afdb.png'
+    },
+    {
         name: 'Huawei',
         nameAr: 'هواوي',
         nameFr: 'Huawei',
