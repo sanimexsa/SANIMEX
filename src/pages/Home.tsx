@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
 
 const sectors = [
     { key: 'acaciaGum', icon: '🌳', path: '/acacia-gum', highlight: true },
@@ -82,6 +83,11 @@ export default function Home() {
 
     return (
         <div className="font-serif">
+            <Helmet>
+                <title>{lang === 'ar' ? 'سانيميكس | الصمغ العربي والبناء والخدمات اللوجستية في تشاد' : lang === 'fr' ? 'SANIMEX | Gomme Arabique, Construction et Logistique au Tchad' : 'SANIMEX | Acacia Gum, Construction & Logistics in Chad'}</title>
+                <meta name="description" content={lang === 'ar' ? 'سانيميكس هي شركة رائدة في تشاد متخصصة في تصدير الصمغ العربي وخدمات البناء والحلول اللوجستية منذ عام ١٩٩٣.' : lang === 'fr' ? 'SANIMEX est un leader au Tchad spécialisé dans l\'exportation de gomme arabique, les services de construction et les solutions logistiques depuis 1993.' : 'SANIMEX is a leader in Chad specializing in acacia gum export, construction services, and logistics solutions since 1993.'} />
+                <meta name="keywords" content="SANIMEX, Sanimex Chad, Sanimex Tchad, Sanimex S.A., Acacia Gum Chad, Gomme Arabique Tchad, Construction Chad, Logistics Chad, Logistique Tchad" />
+            </Helmet>
             <section className="pt-32 pb-24 px-6 bg-gradient-to-b from-blue-50 to-white">
                 <div className="max-w-5xl mx-auto text-center">
                     <p className="text-sm uppercase tracking-widest text-blue-800 mb-4 font-sans font-semibold">Since 1993</p>

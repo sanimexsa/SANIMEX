@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
 
 const projects = [
     { name: 'University of Pala', nameAr: 'جامعة بالا', nameFr: 'Université de Pala', description: 'Major regional educational infrastructure serving the Mayo-Kebbi West region.', descriptionAr: 'بنية تحتية تعليمية إقليمية رئيسية تخدم منطقة مايو كيبي الغربية.', descriptionFr: 'Infrastructure éducative régionale majeure desservant la région du Mayo-Kebbi Ouest.', icon: '🏛️' },
@@ -17,6 +18,11 @@ export default function Construction() {
 
     return (
         <div className="font-serif">
+            <Helmet>
+                <title>{lang === 'ar' ? 'خدمات البناء في تشاد | سانيميكس' : lang === 'fr' ? 'Services de Construction au Tchad | SANIMEX' : 'Construction Services in Chad | SANIMEX'}</title>
+                <meta name="description" content={lang === 'ar' ? 'سانيميكس متخصصة في مشاريع البنية التحتية والمباني المؤسسية الكبرى في تشاد منذ عام ١٩٩٣.' : lang === 'fr' ? 'SANIMEX est spécialisée dans les projets d\'infrastructure et les grands bâtiments institutionnels au Tchad depuis 1993.' : 'SANIMEX specializes in infrastructure projects and major institutional buildings in Chad since 1993.'} />
+                <meta name="keywords" content="Construction Chad, BTP Tchad, Génie Civil Tchad, SANIMEX, Sanimex Tchad" />
+            </Helmet>
             <section className="relative pt-32 pb-32 px-6 min-h-[60vh] flex items-center">
                 <div className="absolute inset-0 z-0">
                     <img src={constructionHero} alt="Construction Site" className="w-full h-full object-cover" />

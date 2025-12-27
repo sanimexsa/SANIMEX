@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
 
 const stats = [
     { value: '20+', labelEn: 'Tonnes/Year Capacity', labelFr: 'Tonnes/An Capacité', labelAr: 'طن/سنة القدرة' },
@@ -72,6 +73,11 @@ export default function AcaciaGum() {
 
     return (
         <div className="font-serif">
+            <Helmet>
+                <title>{lang === 'ar' ? 'تصدير الصمغ العربي من تشاد | سانيميكس' : lang === 'fr' ? 'Export de Gomme Arabique du Tchad | SANIMEX' : 'Acacia Gum Export from Chad | SANIMEX'}</title>
+                <meta name="description" content={lang === 'ar' ? 'سانيميكس هي ثالث أكبر مصدر للصمغ العربي في تشاد، حيث توفر أصناف أكاسيا السنغال وأكاسيا سيال عالية الجودة عالمياً.' : lang === 'fr' ? 'SANIMEX est le 3ème plus grand exportateur de gomme arabique au Tchad, fournissant des variétés Acacia Senegal et Seyal de haute qualité.' : 'SANIMEX is the 3rd largest acacia gum exporter in Chad, providing high-quality Acacia Senegal and Seyal varieties globally.'} />
+                <meta name="keywords" content="Acacia Gum, Gomme Arabique, الصمغ العربي, Hashab, Seyal, Chad Export, Tchad Export, SANIMEX" />
+            </Helmet>
             <section className="relative pt-32 pb-32 px-6 min-h-[70vh] flex items-center">
                 <div className="absolute inset-0 z-0">
                     <img src={acaciaHero} alt="Premium Acacia Gum" className="w-full h-full object-cover" />

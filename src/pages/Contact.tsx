@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
 
 export default function Contact() {
     const [submitted, setSubmitted] = useState(false);
@@ -10,10 +11,30 @@ export default function Contact() {
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        // Simulate backend request
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        setSubmitted(true);
-        setIsSubmitting(false);
+
+        const form = e.target as HTMLFormElement;
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch("https://formspree.io/f/mqaebrjr", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                setSubmitted(true);
+                form.reset();
+            } else {
+                alert("Oops! There was a problem submitting your form. Please try again or email us directly at aa@sanimexsa.com");
+            }
+        } catch (error) {
+            alert("Oops! There was a problem submitting your form. Please try again or email us directly at aa@sanimexsa.com");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const t = {
@@ -83,6 +104,11 @@ export default function Contact() {
 
     return (
         <div className="font-serif">
+            <Helmet>
+                <title>{lang === 'ar' ? 'اتصل بنا | سانيميكس تشاد' : lang === 'fr' ? 'Contactez-nous | SANIMEX Tchad' : 'Contact Us | SANIMEX Chad'}</title>
+                <meta name="description" content={lang === 'ar' ? 'اتصل بسانيميكس للاستفسار عن الصمغ العربي أو البناء أو الخدمات اللوجستية في تشاد.' : lang === 'fr' ? 'Contactez SANIMEX pour vos besoins en gomme arabique, construction ou logistique au Tchad.' : 'Contact SANIMEX for your acacia gum, construction, or logistics needs in Chad.'} />
+                <meta name="keywords" content="Contact SANIMEX, Sanimex Tchad Phone, Sanimex Chad Address" />
+            </Helmet>
             <section className="pt-32 pb-16 px-6 bg-gradient-to-b from-blue-50 to-white">
                 <div className="max-w-4xl mx-auto text-center">
                     <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 text-neutral-900">{text.title}</h1>
@@ -102,11 +128,11 @@ export default function Contact() {
                             </div>
                         ) : (
                             <form onSubmit={handleSubmit} className="space-y-6">
-                                <div><label className="block text-sm font-medium text-neutral-700 mb-2">{text.name}</label><input type="text" required className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" /></div>
-                                <div><label className="block text-sm font-medium text-neutral-700 mb-2">{text.email}</label><input type="email" required className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" /></div>
-                                <div><label className="block text-sm font-medium text-neutral-700 mb-2">{text.company}</label><input type="text" className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" /></div>
-                                <div><label className="block text-sm font-medium text-neutral-700 mb-2">{text.interest}</label><select className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">{text.interests.map(i => <option key={i}>{i}</option>)}</select></div>
-                                <div><label className="block text-sm font-medium text-neutral-700 mb-2">{text.message}</label><textarea rows={4} required className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea></div>
+                                <div><label className="block text-sm font-medium text-neutral-700 mb-2">{text.name}</label><input type="text" name="name" required className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" /></div>
+                                <div><label className="block text-sm font-medium text-neutral-700 mb-2">{text.email}</label><input type="email" name="email" required className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" /></div>
+                                <div><label className="block text-sm font-medium text-neutral-700 mb-2">{text.company}</label><input type="text" name="company" className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" /></div>
+                                <div><label className="block text-sm font-medium text-neutral-700 mb-2">{text.interest}</label><select name="interest" className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">{text.interests.map(i => <option key={i}>{i}</option>)}</select></div>
+                                <div><label className="block text-sm font-medium text-neutral-700 mb-2">{text.message}</label><textarea rows={4} name="message" required className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea></div>
                                 <button type="submit" disabled={isSubmitting} className="w-full bg-blue-900 text-white py-4 rounded-lg font-semibold hover:bg-blue-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                                     {isSubmitting ? (lang === 'ar' ? 'جار الإرسال...' : lang === 'fr' ? 'Envoi en cours...' : 'Sending...') : text.submit}
                                 </button>

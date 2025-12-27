@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const services = [
     { icon: '🚛', titleEn: 'Fleet Transport', titleFr: 'Transport par Flotte', titleAr: 'النقل بالأسطول', descEn: 'Our truck fleet moves cargo across Chad and the Sahel region safely and efficiently.', descFr: 'Notre flotte de camions transporte des marchandises à travers le Tchad et la région du Sahel en toute sécurité.', descAr: 'أسطول شاحناتنا ينقل البضائع عبر تشاد ومنطقة الساحل بأمان وكفاءة.' },
@@ -19,6 +20,11 @@ export default function Logistics() {
 
     return (
         <div className="font-serif">
+            <Helmet>
+                <title>{lang === 'ar' ? 'الخدمات اللوجستية والعقارات في تشاد | سانيميكس' : lang === 'fr' ? 'Logistique et Immobilier au Tchad | SANIMEX' : 'Logistics and Real Estate in Chad | SANIMEX'}</title>
+                <meta name="description" content={lang === 'ar' ? 'حلول لوجستية موثوقة وشريك معتمد لليونيسف وإدارة العقارات التجارية في نجامينا، تشاد.' : lang === 'fr' ? 'Solutions logistiques fiables, partenaire certifié UNICEF et gestion immobilière commerciale à N\'Djamena, Tchad.' : 'Reliable logistics solutions, UNICEF certified partner, and commercial property management in N\'Djamena, Chad.'} />
+                <meta name="keywords" content="Logistics Chad, Logistique Tchad, Transport Tchad, Real Estate Chad, Immobilier Tchad, UNICEF Partner Chad, SANIMEX" />
+            </Helmet>
             <section className="relative pt-32 pb-32 px-6 min-h-[60vh] flex items-center">
                 <div className="absolute inset-0 z-0">
                     <img src={logisticsHero} alt="Logistics convoy" className="w-full h-full object-cover" />
