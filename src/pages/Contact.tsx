@@ -29,8 +29,10 @@ export default function Contact() {
             interest: "Interest",
             message: "Message",
             submit: "Send Message",
-            phone: "Phone",
-            address: "Address",
+            phone: "+235 22 51 49 69",
+            address: "BP 492, N'Djamena, Chad",
+            phoneVal: "+235 22 51 49 69",
+            addressVal: "BP 492, N'Djamena, Chad",
             acaciaNote: "Acacia Gum Inquiries",
             acaciaNoteSub: "For bulk export quotes or supply agreements, use the form above with your volume requirements.",
             interests: ["Acacia Gum Export", "Construction Services", "Logistics & Warehousing", "Property Rentals", "Other"]
@@ -49,6 +51,8 @@ export default function Contact() {
             submit: "Envoyer le Message",
             phone: "Téléphone",
             address: "Adresse",
+            phoneVal: "+235 22 51 49 69",
+            addressVal: "BP 492, N'Djamena, Tchad",
             acaciaNote: "Demandes Gomme Arabique",
             acaciaNoteSub: "Pour les devis d'exportation en gros ou les contrats d'approvisionnement, utilisez le formulaire ci-dessus avec vos besoins en volume.",
             interests: ["Export Gomme Arabique", "Services de Construction", "Logistique & Entreposage", "Location de Propriétés", "Autre"]
@@ -67,6 +71,8 @@ export default function Contact() {
             submit: "إرسال الرسالة",
             phone: "الهاتف",
             address: "العنوان",
+            phoneVal: "+٢٣٥ ٢٢ ٥١ ٤٩ ٦٩",
+            addressVal: "ص.ب ٤٩٢، انجمينا، تشاد",
             acaciaNote: "استفسارات الصمغ العربي",
             acaciaNoteSub: "لطلبات التصدير بالجملة أو اتفاقيات التوريد، استخدم النموذج أعلاه مع متطلبات الحجم الخاصة بك.",
             interests: ["تصدير الصمغ العربي", "خدمات البناء", "الخدمات اللوجستية والتخزين", "تأجير العقارات", "أخرى"]
@@ -111,8 +117,8 @@ export default function Contact() {
                     <div>
                         <h2 className="text-3xl font-bold mb-8 text-neutral-900">{lang === 'ar' ? 'تفاصيل الاتصال' : lang === 'fr' ? 'Coordonnées' : 'Contact Details'}</h2>
                         <div className="space-y-6">
-                            <div className="flex gap-4"><div className="text-2xl">📞</div><div><h3 className="font-semibold text-neutral-900">{text.phone}</h3><p className="text-neutral-600">+235 22 51 49 69</p></div></div>
-                            <div className="flex gap-4"><div className="text-2xl">📍</div><div><h3 className="font-semibold text-neutral-900">{text.address}</h3><p className="text-neutral-600">BP 492, N'Djamena, Chad</p></div></div>
+                            <div className="flex gap-4"><div className="text-2xl">📞</div><div><h3 className="font-semibold text-neutral-900">{text.phone}</h3><p className="text-neutral-600">{text.phoneVal}</p></div></div>
+                            <div className="flex gap-4"><div className="text-2xl">📍</div><div><h3 className="font-semibold text-neutral-900">{text.address}</h3><p className="text-neutral-600">{text.addressVal}</p></div></div>
                         </div>
 
                         <div className="mt-12 p-6 bg-amber-50 rounded-xl border border-amber-200">

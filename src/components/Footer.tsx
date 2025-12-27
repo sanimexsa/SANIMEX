@@ -14,7 +14,9 @@ export default function Footer() {
             acaciaGum: "Acacia Gum Export",
             construction: "Construction",
             logistics: "Logistics & Warehousing",
-            copyright: "© 1993-2025 Sanimex S.A. All Rights Reserved."
+            copyright: "© 1993-2025 Sanimex S.A. All Rights Reserved.",
+            phone: "+235 22 51 49 69",
+            address: "BP 492, N'Djamena, Chad"
         },
         fr: {
             tagline: "Construire l'avenir du Tchad depuis 1993. Une entreprise familiale multi-sectorielle.",
@@ -24,7 +26,9 @@ export default function Footer() {
             acaciaGum: "Export de Gomme Arabique",
             construction: "Construction",
             logistics: "Logistique & Entreposage",
-            copyright: "© 1993-2025 Sanimex S.A. Tous Droits Réservés."
+            copyright: "© 1993-2025 Sanimex S.A. Tous Droits Réservés.",
+            phone: "+235 22 51 49 69",
+            address: "BP 492, N'Djamena, Tchad"
         },
         ar: {
             tagline: "بناء مستقبل تشاد منذ 1993. مؤسسة عائلية متعددة القطاعات.",
@@ -34,7 +38,9 @@ export default function Footer() {
             acaciaGum: "تصدير الصمغ العربي",
             construction: "البناء",
             logistics: "الخدمات اللوجستية والتخزين",
-            copyright: "© 1993-2025 سانيمكس ش.م. جميع الحقوق محفوظة."
+            copyright: "© 1993-2025 سانيمكس ش.م. جميع الحقوق محفوظة.",
+            phone: "+٢٣٥ ٢٢ ٥١ ٤٩ ٦٩",
+            address: "ص.ب ٤٩٢، انجمينا، تشاد"
         }
     };
 
@@ -61,8 +67,8 @@ export default function Footer() {
                     <h4 className="text-white font-semibold mb-4">{content.contact}</h4>
                     <ul className="space-y-2 text-sm">
                         <li><Link to="/contact" className="hover:text-white">{content.sendMessage}</Link></li>
-                        <li>+235 22 51 49 69</li>
-                        <li>BP 492, N'Djamena, Chad</li>
+                        <li>{content.phone}</li>
+                        <li>{content.address}</li>
                     </ul>
                 </div>
             </div>
