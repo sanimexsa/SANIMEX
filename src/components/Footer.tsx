@@ -47,26 +47,45 @@ export default function Footer() {
     const content = text[lang as keyof typeof text] || text.en;
 
     return (
-        <footer className="bg-neutral-900 text-neutral-400 py-16 px-6">
-            <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+        <footer className="bg-[hsl(var(--sanimex-dark))] text-[hsl(var(--sanimex-gray-500))] py-20 px-6 relative overflow-hidden">
+            {/* Decorative gradient */}
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[hsl(var(--sanimex-blue-900))]/30 to-transparent" />
+            
+            <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-14 relative z-10">
                 <div>
-                    <h3 className="text-white font-bold text-xl mb-4" dir="ltr">SANIMEX S.A</h3>
-                    <p className="text-sm">{content.tagline}</p>
+                    <h3 className="text-white font-bold text-2xl mb-5 tracking-tight" dir="ltr">SANIMEX S.A</h3>
+                    <p className="text-sm leading-relaxed">{content.tagline}</p>
                 </div>
 
                 <div>
-                    <h4 className="text-white font-semibold mb-4">{content.sectors}</h4>
-                    <ul className="space-y-2 text-sm">
-                        <li><Link to="/acacia-gum" className="hover:text-white">{content.acaciaGum}</Link></li>
-                        <li><Link to="/construction" className="hover:text-white">{content.construction}</Link></li>
-                        <li><Link to="/logistics" className="hover:text-white">{content.logistics}</Link></li>
+                    <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-[0.15em]">{content.sectors}</h4>
+                    <ul className="space-y-3 text-sm">
+                        <li>
+                            <Link to="/acacia-gum" className="hover:text-white transition-colors duration-200 link-hover inline-block">
+                                {content.acaciaGum}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/construction" className="hover:text-white transition-colors duration-200 link-hover inline-block">
+                                {content.construction}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/logistics" className="hover:text-white transition-colors duration-200 link-hover inline-block">
+                                {content.logistics}
+                            </Link>
+                        </li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 className="text-white font-semibold mb-4">{content.contact}</h4>
-                    <ul className="space-y-2 text-sm">
-                        <li><Link to="/contact" className="hover:text-white">{content.sendMessage}</Link></li>
+                    <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-[0.15em]">{content.contact}</h4>
+                    <ul className="space-y-3 text-sm">
+                        <li>
+                            <Link to="/contact" className="hover:text-white transition-colors duration-200 link-hover inline-block">
+                                {content.sendMessage}
+                            </Link>
+                        </li>
                         <li dir="ltr" className={lang === 'ar' ? 'text-right' : 'text-left'}>{content.phone}</li>
                         <li className={lang === 'ar' ? 'text-right' : 'text-left'}>
                             {lang === 'ar' ? (
@@ -77,7 +96,7 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-neutral-800 text-sm text-center">
+            <div className="max-w-7xl mx-auto mt-14 pt-8 border-t border-[hsl(var(--sanimex-gray-700))]/30 text-sm text-center text-[hsl(var(--sanimex-gray-500))]">
                 {content.copyright}
             </div>
         </footer>

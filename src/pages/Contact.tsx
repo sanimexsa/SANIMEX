@@ -1,12 +1,38 @@
-import { useState, type FormEvent } from 'react';
+import { useState, type FormEvent, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
+
+// Hook for intersection observer animations
+function useRevealOnScroll() {
+    const ref = useRef<HTMLDivElement>(null);
+    
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            },
+            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+        );
+        
+        const elements = ref.current?.querySelectorAll('.reveal');
+        elements?.forEach((el) => observer.observe(el));
+        
+        return () => observer.disconnect();
+    }, []);
+    
+    return ref;
+}
 
 export default function Contact() {
     const [submitted, setSubmitted] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const { i18n } = useTranslation();
     const lang = i18n.language;
+    const containerRef = useRevealOnScroll();
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
@@ -103,59 +129,92 @@ export default function Contact() {
     const text = t[lang as keyof typeof t] || t.en;
 
     return (
-        <div className="font-serif">
+        <div ref={containerRef} className="font-serif">
             <Helmet>
                 <title>{lang === 'ar' ? 'اتصل بنا | سانيميكس تشاد' : lang === 'fr' ? 'Contactez-nous | SANIMEX Tchad' : 'Contact Us | SANIMEX Chad'}</title>
                 <meta name="description" content={lang === 'ar' ? 'اتصل بسانيميكس للاستفسار عن الصمغ العربي أو البناء أو الخدمات اللوجستية في تشاد.' : lang === 'fr' ? 'Contactez SANIMEX pour vos besoins en gomme arabique, construction ou logistique au Tchad.' : 'Contact SANIMEX for your acacia gum, construction, or logistics needs in Chad.'} />
                 <meta name="keywords" content="Contact SANIMEX, Sanimex Tchad Phone, Sanimex Chad Address" />
             </Helmet>
-            <section className="pt-32 pb-16 px-6 bg-gradient-to-b from-blue-50 to-white">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 text-neutral-900">{text.title}</h1>
-                    <p className="text-xl text-neutral-600 max-w-2xl mx-auto font-sans">{text.subtitle}</p>
+            
+            {/* Hero Section */}
+            <section className="pt-36 pb-20 px-6 mesh-gradient grain relative overflow-hidden">
+                {/* Decorative Elements */}
+                <div className="absolute top-20 left-10 w-72 h-72 bg-[hsl(var(--sanimex-blue-900))] rounded-full opacity-[0.04] blur-3xl" />
+                <div className="absolute bottom-10 right-10 w-96 h-96 bg-[hsl(var(--sanimex-sand))] rounded-full opacity-[0.08] blur-3xl" />
+                
+                <div className="max-w-4xl mx-auto text-center relative z-10">
+                    <h1 className="slide-up text-5xl md:text-7xl font-bold leading-[1.1] mb-8 text-[hsl(var(--sanimex-dark))] tracking-tight">{text.title}</h1>
+                    <p className="slide-up delay-100 text-xl md:text-2xl text-[hsl(var(--sanimex-gray-500))] max-w-2xl mx-auto font-sans leading-relaxed">{text.subtitle}</p>
                 </div>
             </section>
 
-            <section className="py-16 px-6 bg-white">
+            {/* Contact Form Section */}
+            <section className="py-20 px-6 bg-white">
                 <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
-                    <div>
-                        <h2 className="text-3xl font-bold mb-8 text-neutral-900">{text.send}</h2>
+                    <div className="reveal">
+                        <h2 className="text-3xl font-bold mb-8 text-[hsl(var(--sanimex-dark))]">{text.send}</h2>
                         {submitted ? (
-                            <div className="bg-green-50 border border-green-200 rounded-xl p-8 text-center">
-                                <div className="text-4xl mb-4">✅</div>
-                                <h3 className="text-xl font-bold text-green-800 mb-2">{text.sent}</h3>
-                                <p className="text-green-700 font-sans">{text.sentSub}</p>
+                            <div className="bg-[hsl(var(--sanimex-green-700))]/10 border border-[hsl(var(--sanimex-green-700))]/20 rounded-3xl p-10 text-center">
+                                <div className="text-5xl mb-5">✅</div>
+                                <h3 className="text-xl font-bold text-[hsl(var(--sanimex-green-700))] mb-3">{text.sent}</h3>
+                                <p className="text-[hsl(var(--sanimex-gray-500))] font-sans">{text.sentSub}</p>
                             </div>
                         ) : (
                             <form onSubmit={handleSubmit} className="space-y-6">
-                                <div><label className="block text-sm font-medium text-neutral-700 mb-2">{text.name}</label><input type="text" name="name" required className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" /></div>
-                                <div><label className="block text-sm font-medium text-neutral-700 mb-2">{text.email}</label><input type="email" name="email" required className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" /></div>
-                                <div><label className="block text-sm font-medium text-neutral-700 mb-2">{text.company}</label><input type="text" name="company" className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" /></div>
-                                <div><label className="block text-sm font-medium text-neutral-700 mb-2">{text.interest}</label><select name="interest" className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">{text.interests.map(i => <option key={i}>{i}</option>)}</select></div>
-                                <div><label className="block text-sm font-medium text-neutral-700 mb-2">{text.message}</label><textarea rows={4} name="message" required className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea></div>
-                                <button type="submit" disabled={isSubmitting} className="w-full bg-blue-900 text-white py-4 rounded-lg font-semibold hover:bg-blue-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                                <div>
+                                    <label className="block text-sm font-medium text-[hsl(var(--sanimex-gray-700))] mb-2">{text.name}</label>
+                                    <input type="text" name="name" required className="w-full px-5 py-4 border border-[hsl(var(--sanimex-gray-100))] rounded-2xl focus:ring-2 focus:ring-[hsl(var(--sanimex-blue-900))] focus:border-transparent transition-all duration-200 bg-[hsl(var(--sanimex-off-white))]" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-[hsl(var(--sanimex-gray-700))] mb-2">{text.email}</label>
+                                    <input type="email" name="email" required className="w-full px-5 py-4 border border-[hsl(var(--sanimex-gray-100))] rounded-2xl focus:ring-2 focus:ring-[hsl(var(--sanimex-blue-900))] focus:border-transparent transition-all duration-200 bg-[hsl(var(--sanimex-off-white))]" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-[hsl(var(--sanimex-gray-700))] mb-2">{text.company}</label>
+                                    <input type="text" name="company" className="w-full px-5 py-4 border border-[hsl(var(--sanimex-gray-100))] rounded-2xl focus:ring-2 focus:ring-[hsl(var(--sanimex-blue-900))] focus:border-transparent transition-all duration-200 bg-[hsl(var(--sanimex-off-white))]" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-[hsl(var(--sanimex-gray-700))] mb-2">{text.interest}</label>
+                                    <select name="interest" className="w-full px-5 py-4 border border-[hsl(var(--sanimex-gray-100))] rounded-2xl focus:ring-2 focus:ring-[hsl(var(--sanimex-blue-900))] focus:border-transparent transition-all duration-200 bg-[hsl(var(--sanimex-off-white))]">
+                                        {text.interests.map(i => <option key={i}>{i}</option>)}
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-[hsl(var(--sanimex-gray-700))] mb-2">{text.message}</label>
+                                    <textarea rows={5} name="message" required className="w-full px-5 py-4 border border-[hsl(var(--sanimex-gray-100))] rounded-2xl focus:ring-2 focus:ring-[hsl(var(--sanimex-blue-900))] focus:border-transparent transition-all duration-200 bg-[hsl(var(--sanimex-off-white))] resize-none"></textarea>
+                                </div>
+                                <button 
+                                    type="submit" 
+                                    disabled={isSubmitting} 
+                                    className="group w-full flex items-center justify-center gap-3 bg-[hsl(var(--sanimex-blue-900))] text-white py-5 rounded-full font-semibold hover:bg-[hsl(var(--sanimex-blue-800))] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-[0_20px_40px_-10px_hsla(213,52%,24%,0.4)]"
+                                >
                                     {isSubmitting ? (lang === 'ar' ? 'جار الإرسال...' : lang === 'fr' ? 'Envoi en cours...' : 'Sending...') : text.submit}
+                                    {!isSubmitting && (
+                                        <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                        </svg>
+                                    )}
                                 </button>
                             </form>
                         )}
                     </div>
 
-                    <div>
-                        <div className="space-y-6">
-                            <div className="flex gap-4">
-                                <div className="text-2xl">📞</div>
+                    <div className="reveal" style={{ animationDelay: '100ms' }}>
+                        <div className="space-y-8">
+                            <div className="group flex gap-5 p-6 bg-[hsl(var(--sanimex-cream))] rounded-2xl hover:shadow-lg transition-all duration-300">
+                                <div className="text-3xl grayscale-[30%] group-hover:grayscale-0 transition-all duration-300">📞</div>
                                 <div>
-                                    <h3 className="font-semibold text-neutral-900">{text.phone}</h3>
-                                    <p className="text-neutral-600 font-sans" dir="ltr" style={{ textAlign: lang === 'ar' ? 'right' : 'left' }}>
+                                    <h3 className="font-bold text-[hsl(var(--sanimex-dark))] mb-1">{text.phone}</h3>
+                                    <p className="text-[hsl(var(--sanimex-gray-500))] font-sans" dir="ltr" style={{ textAlign: lang === 'ar' ? 'right' : 'left' }}>
                                         +235 22 51 49 69
                                     </p>
                                 </div>
                             </div>
-                            <div className="flex gap-4">
-                                <div className="text-2xl">📍</div>
+                            <div className="group flex gap-5 p-6 bg-[hsl(var(--sanimex-cream))] rounded-2xl hover:shadow-lg transition-all duration-300">
+                                <div className="text-3xl grayscale-[30%] group-hover:grayscale-0 transition-all duration-300">📍</div>
                                 <div>
-                                    <h3 className="font-semibold text-neutral-900">{text.address}</h3>
-                                    <p className="text-neutral-600 font-sans" style={{ textAlign: lang === 'ar' ? 'right' : 'left' }}>
+                                    <h3 className="font-bold text-[hsl(var(--sanimex-dark))] mb-1">{text.address}</h3>
+                                    <p className="text-[hsl(var(--sanimex-gray-500))] font-sans" style={{ textAlign: lang === 'ar' ? 'right' : 'left' }}>
                                         {lang === 'ar' ? (
                                             <><span dir="rtl">ص.ب</span> <span dir="ltr">492</span><span dir="rtl">، انجمينا، تشاد</span></>
                                         ) : "BP 492, N'Djamena, Chad"}
@@ -164,9 +223,11 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        <div className="mt-12 p-6 bg-amber-50 rounded-xl border border-amber-200">
-                            <h3 className="font-bold text-amber-800 mb-2">🌳 {text.acaciaNote}</h3>
-                            <p className="text-amber-700 text-sm font-sans">{text.acaciaNoteSub}</p>
+                        <div className="mt-10 p-8 bg-gradient-to-br from-[hsl(var(--sanimex-sand))]/20 to-[hsl(var(--sanimex-terracotta))]/10 rounded-3xl border border-[hsl(var(--sanimex-sand))]/30">
+                            <h3 className="font-bold text-[hsl(var(--sanimex-terracotta))] mb-3 flex items-center gap-2">
+                                <span className="text-2xl">🌳</span> {text.acaciaNote}
+                            </h3>
+                            <p className="text-[hsl(var(--sanimex-gray-500))] text-sm font-sans leading-relaxed">{text.acaciaNoteSub}</p>
                         </div>
                     </div>
                 </div>
