@@ -1,0 +1,55 @@
+﻿2025-12-27T02:37:24.0138987Z ##[group]Run npm test
+2025-12-27T02:37:24.0139466Z [36;1mnpm test[0m
+2025-12-27T02:37:24.0172652Z shell: /usr/bin/bash -e {0}
+2025-12-27T02:37:24.0172934Z ##[endgroup]
+2025-12-27T02:37:24.1386307Z 
+2025-12-27T02:37:24.1386899Z > temp_web@0.0.0 test
+2025-12-27T02:37:24.1387312Z > vitest run
+2025-12-27T02:37:24.1387776Z 
+2025-12-27T02:37:24.4450319Z 
+2025-12-27T02:37:24.4452784Z [1m[46m RUN [49m[22m [36mv4.0.16 [39m[90m/home/runner/work/SANIMEX/SANIMEX[39m
+2025-12-27T02:37:24.4453357Z 
+2025-12-27T02:37:25.4292626Z  [32m✓[39m src/components/Footer.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 42[2mms[22m[39m
+2025-12-27T02:37:26.3997875Z 
+2025-12-27T02:37:26.3999377Z [31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Suites 1 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+2025-12-27T02:37:26.3999980Z 
+2025-12-27T02:37:26.4002990Z [41m[1m FAIL [22m[49m tests/master.spec.ts[2m [ tests/master.spec.ts ][22m
+2025-12-27T02:37:26.4009836Z [31m[1mError[22m: Playwright Test did not expect test.describe() to be called here.
+2025-12-27T02:37:26.4010735Z Most common reasons include:
+2025-12-27T02:37:26.4011399Z - You are calling test.describe() in a configuration file.
+2025-12-27T02:37:26.4012394Z - You are calling test.describe() in a file that is imported by the configuration file.
+2025-12-27T02:37:26.4013419Z - You have two different versions of @playwright/test. This usually happens
+2025-12-27T02:37:26.4014455Z   when one of the dependencies in your package.json depends on @playwright/test.[39m
+2025-12-27T02:37:26.4015703Z [90m [2m❯[22m TestTypeImpl._currentSuite node_modules/playwright/lib/common/testType.js:[2m75:13[22m[39m
+2025-12-27T02:37:26.4017038Z [90m [2m❯[22m TestTypeImpl._describe node_modules/playwright/lib/common/testType.js:[2m115:24[22m[39m
+2025-12-27T02:37:26.4018691Z [90m [2m❯[22m Function.describe node_modules/playwright/lib/transform/transform.js:[2m275:12[22m[39m
+2025-12-27T02:37:26.4019663Z [36m [2m❯[22m tests/master.spec.ts:[2m12:6[22m[39m
+2025-12-27T02:37:26.4051813Z     [90m 10| [39m][33m;[39m
+2025-12-27T02:37:26.4052267Z     [90m 11| [39m
+2025-12-27T02:37:26.4053201Z     [90m 12| [39mtest[33m.[39m[34mdescribe[39m([32m'SANIMEX Multi-lingual Matrix'[39m[33m,[39m () [33m=>[39m {
+2025-12-27T02:37:26.4054019Z     [90m   | [39m     [31m^[39m
+2025-12-27T02:37:26.4054770Z     [90m 13| [39m    [35mfor[39m ([35mconst[39m lang [35mof[39m languages) {
+2025-12-27T02:37:26.4055623Z     [90m 14| [39m        [35mfor[39m ([35mconst[39m page [35mof[39m pages) {
+2025-12-27T02:37:26.4056032Z 
+2025-12-27T02:37:26.4056425Z [31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯[22m[39m
+2025-12-27T02:37:26.4056743Z 
+2025-12-27T02:37:26.4056785Z 
+2025-12-27T02:37:26.4060689Z [2m Test Files [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m1 passed[39m[22m[90m (2)[39m
+2025-12-27T02:37:26.4062446Z [2m      Tests [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+2025-12-27T02:37:26.4063370Z [2m   Start at [22m 02:37:24
+2025-12-27T02:37:26.4064679Z [2m   Duration [22m 1.95s[2m (transform 144ms, setup 154ms, import 199ms, tests 42ms, environment 934ms)[22m
+2025-12-27T02:37:26.4065510Z 
+2025-12-27T02:37:26.4076637Z 
+2025-12-27T02:37:26.4114635Z ##[error]Error: Playwright Test did not expect test.describe() to be called here.
+Most common reasons include:
+- You are calling test.describe() in a configuration file.
+- You are calling test.describe() in a file that is imported by the configuration file.
+- You have two different versions of @playwright/test. This usually happens
+  when one of the dependencies in your package.json depends on @playwright/test.
+ ❯ TestTypeImpl._currentSuite node_modules/playwright/lib/common/testType.js:75:13
+ ❯ TestTypeImpl._describe node_modules/playwright/lib/common/testType.js:115:24
+ ❯ Function.describe node_modules/playwright/lib/transform/transform.js:275:12
+ ❯ tests/master.spec.ts:12:6
+
+
+2025-12-27T02:37:26.4319474Z ##[error]Process completed with exit code 1.

@@ -1,0 +1,31 @@
+﻿2025-12-27T02:37:09.9395133Z Current runner version: '2.330.0'
+2025-12-27T02:37:09.9429839Z ##[group]Runner Image Provisioner
+2025-12-27T02:37:09.9431173Z Hosted Compute Agent
+2025-12-27T02:37:09.9432043Z Version: 20251211.462
+2025-12-27T02:37:09.9433040Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+2025-12-27T02:37:09.9434327Z Build Date: 2025-12-11T16:28:49Z
+2025-12-27T02:37:09.9435399Z Worker ID: {52060878-8ec7-41de-800a-d8ee4e6918cc}
+2025-12-27T02:37:09.9436589Z ##[endgroup]
+2025-12-27T02:37:09.9437710Z ##[group]Operating System
+2025-12-27T02:37:09.9438730Z Ubuntu
+2025-12-27T02:37:09.9439440Z 24.04.3
+2025-12-27T02:37:09.9440220Z LTS
+2025-12-27T02:37:09.9440885Z ##[endgroup]
+2025-12-27T02:37:09.9441755Z ##[group]Runner Image
+2025-12-27T02:37:09.9442810Z Image: ubuntu-24.04
+2025-12-27T02:37:09.9443736Z Version: 20251215.174.1
+2025-12-27T02:37:09.9445559Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251215.174/images/ubuntu/Ubuntu2404-Readme.md
+2025-12-27T02:37:09.9448125Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251215.174
+2025-12-27T02:37:09.9450259Z ##[endgroup]
+2025-12-27T02:37:09.9452047Z ##[group]GITHUB_TOKEN Permissions
+2025-12-27T02:37:09.9454774Z Contents: write
+2025-12-27T02:37:09.9455661Z Metadata: read
+2025-12-27T02:37:09.9456613Z ##[endgroup]
+2025-12-27T02:37:09.9459699Z Secret source: Actions
+2025-12-27T02:37:09.9461129Z Prepare workflow directory
+2025-12-27T02:37:09.9912948Z Prepare all required actions
+2025-12-27T02:37:09.9968046Z Getting action download info
+2025-12-27T02:37:10.3088953Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2025-12-27T02:37:10.4280111Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2025-12-27T02:37:10.5924232Z Download action repository 'JamesIves/github-pages-deploy-action@v4' (SHA:9d877eea73427180ae43cf98e8914934fe157a1a)
+2025-12-27T02:37:11.8263936Z Complete job name: build-and-deploy
