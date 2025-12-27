@@ -67,8 +67,12 @@ export default function Footer() {
                     <h4 className="text-white font-semibold mb-4">{content.contact}</h4>
                     <ul className="space-y-2 text-sm">
                         <li><Link to="/contact" className="hover:text-white">{content.sendMessage}</Link></li>
-                        <li>{content.phone}</li>
-                        <li>{content.address}</li>
+                        <li dir="ltr" className={lang === 'ar' ? 'text-right' : 'text-left'}>{content.phone}</li>
+                        <li className={lang === 'ar' ? 'text-right' : 'text-left'}>
+                            {lang === 'ar' ? (
+                                <><span dir="rtl">ص.ب</span> <span dir="ltr">492</span><span dir="rtl">، انجمينا، تشاد</span></>
+                            ) : content.address}
+                        </li>
                     </ul>
                 </div>
             </div>

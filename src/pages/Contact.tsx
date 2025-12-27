@@ -115,10 +115,27 @@ export default function Contact() {
                     </div>
 
                     <div>
-                        <h2 className="text-3xl font-bold mb-8 text-neutral-900">{lang === 'ar' ? 'تفاصيل الاتصال' : lang === 'fr' ? 'Coordonnées' : 'Contact Details'}</h2>
                         <div className="space-y-6">
-                            <div className="flex gap-4"><div className="text-2xl">📞</div><div><h3 className="font-semibold text-neutral-900">{text.phone}</h3><p className="text-neutral-600">{text.phoneVal}</p></div></div>
-                            <div className="flex gap-4"><div className="text-2xl">📍</div><div><h3 className="font-semibold text-neutral-900">{text.address}</h3><p className="text-neutral-600">{text.addressVal}</p></div></div>
+                            <div className="flex gap-4">
+                                <div className="text-2xl">📞</div>
+                                <div>
+                                    <h3 className="font-semibold text-neutral-900">{text.phone}</h3>
+                                    <p className="text-neutral-600 font-sans" dir="ltr" style={{ textAlign: lang === 'ar' ? 'right' : 'left' }}>
+                                        +235 22 51 49 69
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex gap-4">
+                                <div className="text-2xl">📍</div>
+                                <div>
+                                    <h3 className="font-semibold text-neutral-900">{text.address}</h3>
+                                    <p className="text-neutral-600 font-sans" style={{ textAlign: lang === 'ar' ? 'right' : 'left' }}>
+                                        {lang === 'ar' ? (
+                                            <><span dir="rtl">ص.ب</span> <span dir="ltr">492</span><span dir="rtl">، انجمينا، تشاد</span></>
+                                        ) : "BP 492, N'Djamena, Chad"}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
                         <div className="mt-12 p-6 bg-amber-50 rounded-xl border border-amber-200">
