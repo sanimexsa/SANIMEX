@@ -1,0 +1,39 @@
+{
+    "hero": "Building The Future of Chad Since 1993.",
+    "subhero": "A family-owned multi-sector enterprise: Construction, Acacia Gum Export, Logistics, and Real Estate.",
+    "trustedBy": "Trusted By Global Institutions",
+    "contact": "Contact Us",
+    "sectorsTitle": "Our Business Sectors",
+    "sectorsSubtitle": "A diversified family enterprise serving Chad and the world for over 30 years.",
+    "usOpportunity": "US Export Opportunity",
+    "ctaTitle": "Ready to Partner?",
+    "ctaSubtitle": "Whether you're sourcing acacia gum, building infrastructure, or need logistics support in the Sahel — let's talk.",
+    "nav": {
+        "acaciaGum": "Acacia Gum",
+        "construction": "Construction",
+        "logistics": "Logistics"
+    },
+    "sectors": {
+        "acaciaGum": {
+            "title": "Acacia Gum Export",
+            "description": "Direct export to US & Europe. 10+ years supplying Alland & Robert. Conflict-free sourcing from Chad."
+        },
+        "construction": {
+            "title": "Construction",
+            "description": "30+ years of national infrastructure. Universities, government buildings, and sovereign institutions."
+        },
+        "logistics": {
+            "title": "Logistics & Warehousing",
+            "description": "Fleet transport, strategic warehousing, and UNICEF-certified last-mile delivery."
+        }
+    },
+    "portfolio": {
+        "title": "Landmark Projects",
+        "subtitle": "10+ major institutional projects. Here are three signature works."
+    },
+    "partners": {
+        "worldbank": "World Bank Partner",
+        "unicef": "UNICEF Logistics Partner",
+        "afdb": "AfDB Strategic Partner"
+    }
+}

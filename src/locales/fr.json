@@ -1,0 +1,39 @@
+{
+    "hero": "Bâtir l'Avenir du Tchad Depuis 1993.",
+    "subhero": "Une entreprise familiale multi-sectorielle : Construction, Export de Gomme Arabique, Logistique et Immobilier.",
+    "trustedBy": "Approuvé Par Les Institutions Mondiales",
+    "contact": "Contactez-nous",
+    "sectorsTitle": "Nos Secteurs d'Activité",
+    "sectorsSubtitle": "Une entreprise familiale diversifiée au service du Tchad et du monde depuis plus de 30 ans.",
+    "usOpportunity": "Opportunité d'Export USA",
+    "ctaTitle": "Prêt à Collaborer ?",
+    "ctaSubtitle": "Que vous cherchiez de la gomme arabique, des services de construction ou de la logistique au Sahel — parlons-en.",
+    "nav": {
+        "acaciaGum": "Gomme Arabique",
+        "construction": "Construction",
+        "logistics": "Logistique"
+    },
+    "sectors": {
+        "acaciaGum": {
+            "title": "Export de Gomme Arabique",
+            "description": "Exportation directe vers les États-Unis et l'Europe. 10+ ans de partenariat avec Alland & Robert."
+        },
+        "construction": {
+            "title": "Construction",
+            "description": "30+ ans d'infrastructures nationales. Universités, bâtiments gouvernementaux et institutions souveraines."
+        },
+        "logistics": {
+            "title": "Logistique & Entreposage",
+            "description": "Transport par flotte, entreposage stratégique et livraison certifiée UNICEF."
+        }
+    },
+    "portfolio": {
+        "title": "Projets Phares",
+        "subtitle": "10+ projets institutionnels majeurs. Voici trois réalisations emblématiques."
+    },
+    "partners": {
+        "worldbank": "Partenaire Banque Mondiale",
+        "unicef": "Partenaire Logistique UNICEF",
+        "afdb": "Partenaire Stratégique BAD"
+    }
+}

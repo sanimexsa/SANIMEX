@@ -151,3 +151,9 @@ cython_debug/
 
 # PyCharm
 .idea/
+
+# Node
+node_modules
+dist
+.DS_Store
+coverage
