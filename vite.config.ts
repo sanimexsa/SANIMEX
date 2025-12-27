@@ -14,7 +14,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // @ts-ignore
+  // @ts-expect-error - Vitest types not included in Vite config
   test: {
     globals: true,
     environment: 'jsdom',

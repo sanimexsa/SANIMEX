@@ -7,7 +7,16 @@ const sectors = [
     { key: 'logistics', icon: '🚛', path: '/logistics', highlight: false },
 ];
 
-const partners = [
+interface Partner {
+    name: string;
+    nameAr?: string;
+    nameFr?: string;
+    logo: string;
+    logoAr?: string;
+    logoFr?: string;
+}
+
+const partners: Partner[] = [
     {
         name: 'Government of Chad',
         nameAr: 'حكومة تشاد',
@@ -59,18 +68,14 @@ export default function Home() {
     const { t, i18n } = useTranslation();
     const lang = i18n.language;
 
-    const getPartnerLogo = (p: typeof partners[0]) => {
-        // @ts-ignore - dynamic property access
+    const getPartnerLogo = (p: Partner) => {
         if (lang === 'ar' && p.logoAr) return p.logoAr;
-        // @ts-ignore - dynamic property access
         if (lang === 'fr' && p.logoFr) return p.logoFr;
         return p.logo;
     };
 
-    const getPartnerName = (p: typeof partners[0]) => {
-        // @ts-ignore - dynamic property access
+    const getPartnerName = (p: Partner) => {
         if (lang === 'ar' && p.nameAr) return p.nameAr;
-        // @ts-ignore - dynamic property access
         if (lang === 'fr' && p.nameFr) return p.nameFr;
         return p.name;
     };
