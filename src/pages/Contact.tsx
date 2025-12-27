@@ -30,7 +30,7 @@ export default function Contact() {
             } else {
                 alert("Oops! There was a problem submitting your form. Please try again or email us directly at aa@sanimexsa.com");
             }
-        } catch (error) {
+        } catch {
             alert("Oops! There was a problem submitting your form. Please try again or email us directly at aa@sanimexsa.com");
         } finally {
             setIsSubmitting(false);
