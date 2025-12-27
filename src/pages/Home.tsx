@@ -222,7 +222,7 @@ export default function Home() {
                                 <img
                                     src={getPartnerLogo(partner)}
                                     alt={partner.name}
-                                    className="h-14 w-auto object-contain mb-3 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                                    className="h-14 w-auto object-contain mb-3 transition-all duration-300"
                                     loading="lazy"
                                 />
                                 <p className="text-xs font-medium text-[hsl(var(--sanimex-gray-500))] group-hover:text-[hsl(var(--sanimex-dark))] transition-colors">
