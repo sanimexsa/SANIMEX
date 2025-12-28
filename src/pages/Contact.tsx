@@ -1,6 +1,7 @@
 import { useState, type FormEvent, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
+import { CheckCircle2, Phone, MapPin, TreeDeciduous } from 'lucide-react';
 
 // Hook for intersection observer animations
 function useRevealOnScroll() {
@@ -137,12 +138,8 @@ export default function Contact() {
             </Helmet>
             
             {/* Hero Section */}
-            <section className="pt-36 pb-20 px-6 mesh-gradient grain relative overflow-hidden">
-                {/* Decorative Elements */}
-                <div className="absolute top-20 left-10 w-72 h-72 bg-[hsl(var(--sanimex-blue-900))] rounded-full opacity-[0.04] blur-3xl" />
-                <div className="absolute bottom-10 right-10 w-96 h-96 bg-[hsl(var(--sanimex-sand))] rounded-full opacity-[0.08] blur-3xl" />
-                
-                <div className="max-w-4xl mx-auto text-center relative z-10">
+            <section className="pt-36 pb-20 px-6 bg-[hsl(var(--sanimex-off-white))]">
+                <div className="max-w-4xl mx-auto text-center">
                     <h1 className="slide-up text-5xl md:text-7xl font-bold leading-[1.1] mb-8 text-[hsl(var(--sanimex-dark))] tracking-tight">{text.title}</h1>
                     <p className="slide-up delay-100 text-xl md:text-2xl text-[hsl(var(--sanimex-gray-500))] max-w-2xl mx-auto font-sans leading-relaxed">{text.subtitle}</p>
                 </div>
@@ -155,7 +152,7 @@ export default function Contact() {
                         <h2 className="text-3xl font-bold mb-8 text-[hsl(var(--sanimex-dark))]">{text.send}</h2>
                         {submitted ? (
                             <div className="bg-[hsl(var(--sanimex-green-700))]/10 border border-[hsl(var(--sanimex-green-700))]/20 rounded-3xl p-10 text-center">
-                                <div className="text-5xl mb-5">✅</div>
+                                <CheckCircle2 className="w-14 h-14 mx-auto mb-5 text-[hsl(var(--sanimex-green-700))]" strokeWidth={1.5} />
                                 <h3 className="text-xl font-bold text-[hsl(var(--sanimex-green-700))] mb-3">{text.sent}</h3>
                                 <p className="text-[hsl(var(--sanimex-gray-500))] font-sans">{text.sentSub}</p>
                             </div>
@@ -202,7 +199,7 @@ export default function Contact() {
                     <div className="reveal" style={{ animationDelay: '100ms' }}>
                         <div className="space-y-8">
                             <div className="group flex gap-5 p-6 bg-[hsl(var(--sanimex-cream))] rounded-2xl hover:shadow-lg transition-all duration-300">
-                                <div className="text-3xl grayscale-[30%] group-hover:grayscale-0 transition-all duration-300">📞</div>
+                                <Phone className="w-8 h-8 text-[hsl(var(--sanimex-gray-500))] group-hover:text-[hsl(var(--sanimex-blue-900))] transition-all duration-300" strokeWidth={1.5} />
                                 <div>
                                     <h3 className="font-bold text-[hsl(var(--sanimex-dark))] mb-1">{text.phone}</h3>
                                     <p className="text-[hsl(var(--sanimex-gray-500))] font-sans" dir="ltr" style={{ textAlign: lang === 'ar' ? 'right' : 'left' }}>
@@ -211,7 +208,7 @@ export default function Contact() {
                                 </div>
                             </div>
                             <div className="group flex gap-5 p-6 bg-[hsl(var(--sanimex-cream))] rounded-2xl hover:shadow-lg transition-all duration-300">
-                                <div className="text-3xl grayscale-[30%] group-hover:grayscale-0 transition-all duration-300">📍</div>
+                                <MapPin className="w-8 h-8 text-[hsl(var(--sanimex-gray-500))] group-hover:text-[hsl(var(--sanimex-blue-900))] transition-all duration-300" strokeWidth={1.5} />
                                 <div>
                                     <h3 className="font-bold text-[hsl(var(--sanimex-dark))] mb-1">{text.address}</h3>
                                     <p className="text-[hsl(var(--sanimex-gray-500))] font-sans" style={{ textAlign: lang === 'ar' ? 'right' : 'left' }}>
@@ -225,7 +222,7 @@ export default function Contact() {
 
                         <div className="mt-10 p-8 bg-gradient-to-br from-[hsl(var(--sanimex-sand))]/20 to-[hsl(var(--sanimex-terracotta))]/10 rounded-3xl border border-[hsl(var(--sanimex-sand))]/30">
                             <h3 className="font-bold text-[hsl(var(--sanimex-terracotta))] mb-3 flex items-center gap-2">
-                                <span className="text-2xl">🌳</span> {text.acaciaNote}
+                                <TreeDeciduous className="w-6 h-6" strokeWidth={1.5} /> {text.acaciaNote}
                             </h3>
                             <p className="text-[hsl(var(--sanimex-gray-500))] text-sm font-sans leading-relaxed">{text.acaciaNoteSub}</p>
                         </div>

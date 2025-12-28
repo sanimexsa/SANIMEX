@@ -1,11 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import { useEffect, useRef } from 'react';
+import { Landmark, Scale, Shield, type LucideIcon } from 'lucide-react';
 
-const projects = [
-    { name: 'University of Pala', nameAr: 'جامعة بالا', nameFr: 'Université de Pala', description: 'Major regional educational infrastructure serving the Mayo-Kebbi West region.', descriptionAr: 'بنية تحتية تعليمية إقليمية رئيسية تخدم منطقة مايو كيبي الغربية.', descriptionFr: 'Infrastructure éducative régionale majeure desservant la région du Mayo-Kebbi Ouest.', icon: '🏛️' },
-    { name: 'Constitutional Council of Chad', nameAr: 'المجلس الدستوري لتشاد', nameFr: 'Conseil Constitutionnel du Tchad', description: 'Sovereign institutional construction — the foundation of Chadian governance.', descriptionAr: 'بناء مؤسسي سيادي — أساس الحكم التشادي.', descriptionFr: 'Construction institutionnelle souveraine — le fondement de la gouvernance tchadienne.', icon: '⚖️' },
-    { name: 'National Police Headquarters', nameAr: 'المقر الرئيسي للشرطة الوطنية', nameFr: 'Quartier Général de la Police Nationale', description: 'High-security sovereign infrastructure for national security operations.', descriptionAr: 'بنية تحتية سيادية عالية الأمان لعمليات الأمن الوطني.', descriptionFr: 'Infrastructure souveraine de haute sécurité pour les opérations de sécurité nationale.', icon: '🛡️' },
+const projects: { name: string; nameAr: string; nameFr: string; description: string; descriptionAr: string; descriptionFr: string; Icon: LucideIcon }[] = [
+    { name: 'University of Pala', nameAr: 'جامعة بالا', nameFr: 'Université de Pala', description: 'Major regional educational infrastructure serving the Mayo-Kebbi West region.', descriptionAr: 'بنية تحتية تعليمية إقليمية رئيسية تخدم منطقة مايو كيبي الغربية.', descriptionFr: 'Infrastructure éducative régionale majeure desservant la région du Mayo-Kebbi Ouest.', Icon: Landmark },
+    { name: 'Constitutional Council of Chad', nameAr: 'المجلس الدستوري لتشاد', nameFr: 'Conseil Constitutionnel du Tchad', description: 'Sovereign institutional construction — the foundation of Chadian governance.', descriptionAr: 'بناء مؤسسي سيادي — أساس الحكم التشادي.', descriptionFr: 'Construction institutionnelle souveraine — le fondement de la gouvernance tchadienne.', Icon: Scale },
+    { name: 'National Police Headquarters', nameAr: 'المقر الرئيسي للشرطة الوطنية', nameFr: 'Quartier Général de la Police Nationale', description: 'High-security sovereign infrastructure for national security operations.', descriptionAr: 'بنية تحتية سيادية عالية الأمان لعمليات الأمن الوطني.', descriptionFr: 'Infrastructure souveraine de haute sécurité pour les opérations de sécurité nationale.', Icon: Shield },
 ];
 
 import constructionHero from '../assets/images/construction.png';
@@ -98,7 +99,7 @@ export default function Construction() {
                                 className="reveal group bg-[hsl(var(--sanimex-cream))] p-10 rounded-3xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                                 style={{ animationDelay: `${i * 100}ms` }}
                             >
-                                <div className="text-5xl mb-6 grayscale-[30%] group-hover:grayscale-0 transition-all duration-300">{project.icon}</div>
+                                <project.Icon className="w-12 h-12 mb-6 text-[hsl(var(--sanimex-gray-500))] group-hover:text-[hsl(var(--sanimex-blue-900))] transition-all duration-300" strokeWidth={1.5} />
                                 <h3 className="text-xl font-bold mb-4 text-[hsl(var(--sanimex-dark))]">{getName(project)}</h3>
                                 <p className="text-[hsl(var(--sanimex-gray-500))] font-sans leading-relaxed">{getDesc(project)}</p>
                             </div>

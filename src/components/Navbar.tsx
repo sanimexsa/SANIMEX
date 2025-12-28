@@ -17,6 +17,13 @@ export default function Navbar() {
     const navigate = useNavigate();
     const lang = i18n.language;
 
+    // Pre-compute all localized links at the top level (hooks must be called unconditionally)
+    const homeLink = useLocalizedLink('/');
+    const acaciaGumLink = useLocalizedLink('/acacia-gum');
+    const constructionLink = useLocalizedLink('/construction');
+    const logisticsLink = useLocalizedLink('/logistics');
+    const contactLink = useLocalizedLink('/contact');
+
     // Note: document attributes are now set in LanguageWrapper component
     // but keeping this as a fallback
     useEffect(() => {
@@ -34,15 +41,15 @@ export default function Navbar() {
     };
 
     const navItems = [
-        { to: useLocalizedLink('/acacia-gum'), label: t('nav.acaciaGum') },
-        { to: useLocalizedLink('/construction'), label: t('nav.construction') },
-        { to: useLocalizedLink('/logistics'), label: t('nav.logistics') },
+        { to: acaciaGumLink, label: t('nav.acaciaGum') },
+        { to: constructionLink, label: t('nav.construction') },
+        { to: logisticsLink, label: t('nav.logistics') },
     ];
 
     return (
         <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-[hsl(var(--sanimex-gray-100))] z-50">
             <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-                <Link to={useLocalizedLink('/')} className="text-2xl font-bold tracking-tighter text-[hsl(var(--sanimex-dark))]" dir="ltr">
+                <Link to={homeLink} className="text-2xl font-bold tracking-tighter text-[hsl(var(--sanimex-dark))]" dir="ltr">
                     SANIMEX S.A
                 </Link>
 
@@ -58,7 +65,7 @@ export default function Navbar() {
                         </Link>
                     ))}
                     <Button asChild className="bg-[hsl(var(--sanimex-blue-900))] hover:bg-[hsl(var(--sanimex-blue-800))] rounded-full">
-                        <Link to={useLocalizedLink('/contact')}>{t('contact')}</Link>
+                        <Link to={contactLink}>{t('contact')}</Link>
                     </Button>
                 </div>
 
@@ -106,7 +113,7 @@ export default function Navbar() {
                             </Link>
                         ))}
                         <Button asChild className="bg-[hsl(var(--sanimex-blue-900))] hover:bg-[hsl(var(--sanimex-blue-800))] rounded-full w-full py-6 text-lg">
-                            <Link to={useLocalizedLink('/contact')} onClick={() => setIsMenuOpen(false)}>{t('contact')}</Link>
+                            <Link to={contactLink} onClick={() => setIsMenuOpen(false)}>{t('contact')}</Link>
                         </Button>
                     </div>
                 </div>

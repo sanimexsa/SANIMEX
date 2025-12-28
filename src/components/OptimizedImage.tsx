@@ -25,12 +25,14 @@ interface OptimizedImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 
 export default function OptimizedImage({
   src,
   alt,
-  sizes = '100vw',
+  sizes: _sizes = '100vw',
   className,
   loading,
   priority = false,
   ...props
 }: OptimizedImageProps) {
+  // Note: sizes will be used when vite-imagetools picture element is implemented
+  void _sizes;
   // For now, use the original image directly
   // Once vite-imagetools is installed, this will automatically handle
   // the picture element with multiple formats and sizes

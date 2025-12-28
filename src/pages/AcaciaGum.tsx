@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import { useEffect, useRef } from 'react';
+import { CheckCircle2, Ship, ClipboardList, Factory, Leaf, Shield, type LucideIcon } from 'lucide-react';
 
 const stats = [
     { value: '20+', labelEn: 'Tonnes/Year Capacity', labelFr: 'Tonnes/An Capacité', labelAr: 'طن/سنة القدرة' },
@@ -9,11 +10,17 @@ const stats = [
     { value: '3rd', labelEn: 'Largest Exporter (Chad)', labelFr: 'Plus Grand Exportateur (Tchad)', labelAr: 'أكبر مصدر (تشاد)' },
 ];
 
-const advantages = [
-    { icon: '✅', titleEn: 'Direct from Chad', titleFr: 'Direct du Tchad', titleAr: 'مباشر من تشاد', descEn: 'Chad is the 3rd largest acacia gum exporter globally. Source directly from producers.', descFr: 'Le Tchad est le 3ème plus grand exportateur de gomme arabique au monde. Approvisionnez-vous directement.', descAr: 'تشاد هي ثالث أكبر مصدر للصمغ العربي عالمياً. احصل على المنتج مباشرة من المنتجين.' },
-    { icon: '🚢', titleEn: 'No Intermediaries', titleFr: 'Sans Intermédiaires', titleAr: 'بدون وسطاء', descEn: 'Direct export to your facility. Simplified supply chain.', descFr: 'Exportation directe vers vos installations. Chaîne d\'approvisionnement simplifiée.', descAr: 'تصدير مباشر إلى منشأتك. سلسلة توريد مبسطة.' },
-    { icon: '📋', titleEn: 'Proven Track Record', titleFr: 'Historique Éprouvé', titleAr: 'سجل حافل', descEn: '10+ years supplying to Alland & Robert (France).', descFr: '10+ ans de fourniture à Alland & Robert (France).', descAr: 'أكثر من 10 سنوات من التزويد لشركة ألاند وروبرت (فرنسا).' },
-    { icon: '🏭', titleEn: 'Consistent Quality', titleFr: 'Qualité Constante', titleAr: 'جودة متسقة', descEn: 'High-grade Acacia Senegal and Acacia Seyal varieties.', descFr: 'Variétés de haute qualité Acacia Senegal et Acacia Seyal.', descAr: 'أصناف عالية الجودة من أكاسيا السنغال وأكاسيا سيال.' },
+const advantages: { Icon: LucideIcon; titleEn: string; titleFr: string; titleAr: string; descEn: string; descFr: string; descAr: string }[] = [
+    { Icon: CheckCircle2, titleEn: 'Direct from Chad', titleFr: 'Direct du Tchad', titleAr: 'مباشر من تشاد', descEn: 'Chad is the 3rd largest acacia gum exporter globally. Source directly from producers.', descFr: 'Le Tchad est le 3ème plus grand exportateur de gomme arabique au monde. Approvisionnez-vous directement.', descAr: 'تشاد هي ثالث أكبر مصدر للصمغ العربي عالمياً. احصل على المنتج مباشرة من المنتجين.' },
+    { Icon: Ship, titleEn: 'No Intermediaries', titleFr: 'Sans Intermédiaires', titleAr: 'بدون وسطاء', descEn: 'Direct export to your facility. Simplified supply chain.', descFr: 'Exportation directe vers vos installations. Chaîne d\'approvisionnement simplifiée.', descAr: 'تصدير مباشر إلى منشأتك. سلسلة توريد مبسطة.' },
+    { Icon: ClipboardList, titleEn: 'Proven Track Record', titleFr: 'Historique Éprouvé', titleAr: 'سجل حافل', descEn: '10+ years supplying to Alland & Robert (France).', descFr: '10+ ans de fourniture à Alland & Robert (France).', descAr: 'أكثر من 10 سنوات من التزويد لشركة ألاند وروبرت (فرنسا).' },
+    { Icon: Factory, titleEn: 'Consistent Quality', titleFr: 'Qualité Constante', titleAr: 'جودة متسقة', descEn: 'High-grade Acacia Senegal and Acacia Seyal varieties.', descFr: 'Variétés de haute qualité Acacia Senegal et Acacia Seyal.', descAr: 'أصناف عالية الجودة من أكاسيا السنغال وأكاسيا سيال.' },
+];
+
+const certifications: { Icon: LucideIcon; label: string; bg: string }[] = [
+    { Icon: Leaf, label: 'Organic (EU/NOP)', bg: 'bg-green-50' },
+    { Icon: Shield, label: 'HACCP Compliant', bg: 'bg-blue-50' },
+    { Icon: CheckCircle2, label: 'ISO 22000', bg: 'bg-purple-50' },
 ];
 
 import acaciaHero from '../assets/images/acacia.png';
@@ -133,13 +140,11 @@ export default function AcaciaGum() {
                 <div className="max-w-7xl mx-auto px-6 text-center">
                     <p className="text-sm font-bold text-[hsl(var(--sanimex-gray-500))] uppercase tracking-[0.2em] mb-10">{lang === 'ar' ? 'الشهادات والامتثال' : lang === 'fr' ? 'Certifications et Conformité' : 'Certifications & Compliance'}</p>
                     <div className="flex flex-wrap justify-center gap-10 md:gap-16">
-                        {[
-                            { icon: '🌿', label: 'Organic (EU/NOP)', bg: 'bg-green-50' },
-                            { icon: '🛡️', label: 'HACCP Compliant', bg: 'bg-blue-50' },
-                            { icon: '✅', label: 'ISO 22000', bg: 'bg-purple-50' }
-                        ].map((cert, i) => (
+                        {certifications.map((cert, i) => (
                             <div key={cert.label} className="reveal flex flex-col items-center gap-4 group" style={{ animationDelay: `${i * 100}ms` }}>
-                                <div className={`w-20 h-20 rounded-2xl ${cert.bg} flex items-center justify-center text-4xl mb-2 group-hover:scale-110 transition-all duration-300 shadow-sm`}>{cert.icon}</div>
+                                <div className={`w-20 h-20 rounded-2xl ${cert.bg} flex items-center justify-center mb-2 group-hover:scale-110 transition-all duration-300 shadow-sm`}>
+                                    <cert.Icon className="w-10 h-10 text-[hsl(var(--sanimex-gray-500))] group-hover:text-[hsl(var(--sanimex-blue-900))] transition-colors" strokeWidth={1.5} />
+                                </div>
                                 <span className="font-bold text-[hsl(var(--sanimex-gray-700))] text-sm">{cert.label}</span>
                             </div>
                         ))}
@@ -173,7 +178,7 @@ export default function AcaciaGum() {
                                 className="reveal group flex gap-5 p-8 bg-[hsl(var(--sanimex-cream))] rounded-3xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                                 style={{ animationDelay: `${i * 100}ms` }}
                             >
-                                <div className="text-4xl grayscale-[30%] group-hover:grayscale-0 transition-all duration-300">{adv.icon}</div>
+                                <adv.Icon className="w-10 h-10 text-[hsl(var(--sanimex-gray-500))] group-hover:text-[hsl(var(--sanimex-blue-900))] transition-all duration-300" strokeWidth={1.5} />
                                 <div>
                                     <h3 className="text-xl font-bold mb-3 text-[hsl(var(--sanimex-dark))]">{getTitle(adv)}</h3>
                                     <p className="text-[hsl(var(--sanimex-gray-500))] font-sans leading-relaxed">{getDesc(adv)}</p>
@@ -185,12 +190,8 @@ export default function AcaciaGum() {
             </section>
 
             {/* Market Section */}
-            <section className="reveal py-24 px-6 bg-[hsl(var(--sanimex-dark))] text-white relative overflow-hidden">
-                {/* Decorative elements */}
-                <div className="absolute top-10 right-[10%] w-64 h-64 bg-[hsl(var(--sanimex-terracotta))] rounded-full opacity-10 blur-3xl" />
-                <div className="absolute bottom-10 left-[10%] w-80 h-80 bg-[hsl(var(--sanimex-sand))] rounded-full opacity-10 blur-3xl" />
-                
-                <div className="max-w-4xl mx-auto relative z-10">
+            <section className="reveal py-24 px-6 bg-[hsl(var(--sanimex-dark))] text-white">
+                <div className="max-w-4xl mx-auto">
                     <h2 className="text-4xl md:text-5xl font-bold mb-10 leading-tight">{content.marketTitle}</h2>
                     <div className="space-y-6 text-lg font-sans text-[hsl(var(--sanimex-gray-300))] leading-relaxed">
                         <p>{content.marketP1}</p>

@@ -6,6 +6,7 @@ import { seoMetadata } from '@/data/seo-metadata';
 import { useLocalizedLink } from '@/hooks/useLocalizedLink';
 import { getOrganizationSchema } from '@/data/schemas/organization';
 import { getLocalBusinessSchema } from '@/data/schemas/business';
+import { TreeDeciduous, Building2, Truck, type LucideIcon } from 'lucide-react';
 
 
 interface Partner {
@@ -96,10 +97,10 @@ export default function Home() {
     const containerRef = useRevealOnScroll();
 
     // Localized sector paths
-    const sectors = [
-        { key: 'acaciaGum', icon: '🌳', path: useLocalizedLink('/acacia-gum'), highlight: true },
-        { key: 'construction', icon: '🏗️', path: useLocalizedLink('/construction'), highlight: false },
-        { key: 'logistics', icon: '🚛', path: useLocalizedLink('/logistics'), highlight: false },
+    const sectors: { key: string; Icon: LucideIcon; path: string; highlight: boolean }[] = [
+        { key: 'acaciaGum', Icon: TreeDeciduous, path: useLocalizedLink('/acacia-gum'), highlight: true },
+        { key: 'construction', Icon: Building2, path: useLocalizedLink('/construction'), highlight: false },
+        { key: 'logistics', Icon: Truck, path: useLocalizedLink('/logistics'), highlight: false },
     ];
 
     const getPartnerLogo = (p: Partner) => {
@@ -127,13 +128,9 @@ export default function Home() {
         <div ref={containerRef} className="font-serif">
             <SEOHead {...seo} type="website" jsonLd={schemas} />
             
-            {/* Hero Section - Desert Modernism Style */}
-            <section className="relative pt-36 pb-28 px-6 mesh-gradient grain overflow-hidden">
-                {/* Decorative Elements */}
-                <div className="absolute top-20 left-10 w-72 h-72 bg-[hsl(var(--sanimex-green-700))] rounded-full opacity-[0.04] blur-3xl" />
-                <div className="absolute bottom-10 right-10 w-96 h-96 bg-[hsl(var(--sanimex-sand))] rounded-full opacity-[0.08] blur-3xl" />
-                
-                <div className="max-w-5xl mx-auto text-center relative z-10">
+            {/* Hero Section */}
+            <section className="relative pt-36 pb-28 px-6 bg-[hsl(var(--sanimex-off-white))] overflow-hidden">
+                <div className="max-w-5xl mx-auto text-center">
                     <p className="slide-up text-sm uppercase tracking-[0.25em] text-[hsl(var(--sanimex-terracotta))] mb-6 font-sans font-semibold">
                         {lang === 'ar' ? 'منذ ١٩٩٣' : lang === 'fr' ? 'Depuis 1993' : 'Since 1993'}
                     </p>
@@ -193,8 +190,11 @@ export default function Home() {
                                 )}
                                 
                                 <div className="relative z-10">
-                                    <div className={`text-5xl md:text-6xl mb-6 transition-transform duration-300 group-hover:scale-110 ${sector.highlight ? '' : 'grayscale-[30%] group-hover:grayscale-0'}`}>
-                                        {sector.icon}
+                                    <div className={`mb-6 transition-transform duration-300 group-hover:scale-110`}>
+                                        <sector.Icon
+                                            className={`w-12 h-12 md:w-14 md:h-14 ${sector.highlight ? 'text-white' : 'text-[hsl(var(--sanimex-gray-500))] group-hover:text-[hsl(var(--sanimex-blue-900))]'}`}
+                                            strokeWidth={1.5}
+                                        />
                                     </div>
                                     <h3 className={`text-xl md:text-2xl font-bold mb-3 ${sector.highlight ? '' : 'text-[hsl(var(--sanimex-dark))]'}`}>
                                         {t(`sectors.${sector.key}.title`)}
@@ -246,14 +246,8 @@ export default function Home() {
             </section>
 
             {/* CTA Section */}
-            <section className="reveal relative py-28 px-6 bg-[hsl(var(--sanimex-blue-900))] text-white text-center overflow-hidden">
-                {/* Decorative elements */}
-                <div className="absolute top-0 left-0 w-full h-full">
-                    <div className="absolute top-10 left-[10%] w-64 h-64 bg-[hsl(var(--sanimex-green-700))] rounded-full opacity-10 blur-3xl" />
-                    <div className="absolute bottom-10 right-[10%] w-80 h-80 bg-[hsl(var(--sanimex-sand))] rounded-full opacity-10 blur-3xl" />
-                </div>
-                
-                <div className="max-w-3xl mx-auto relative z-10">
+            <section className="reveal py-28 px-6 bg-[hsl(var(--sanimex-blue-900))] text-white text-center">
+                <div className="max-w-3xl mx-auto">
                     <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">{t('ctaTitle')}</h2>
                     <p className="text-xl text-blue-100 mb-10 font-sans leading-relaxed">{t('ctaSubtitle')}</p>
                     <Link 
