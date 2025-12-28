@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useRef } from 'react';
 import SEOHead from '@/components/SEOHead';
 import { seoMetadata } from '@/data/seo-metadata';
 import { useLocalizedLink } from '@/hooks/useLocalizedLink';
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll';
 import { getOrganizationSchema } from '@/data/schemas/organization';
 import { getLocalBusinessSchema } from '@/data/schemas/business';
 import { TreeDeciduous, Building2, Truck, type LucideIcon } from 'lucide-react';
@@ -67,31 +67,6 @@ const partners: Partner[] = [
         logoFr: '/logos/wfp-fr.png'
     },
 ];
-
-// Hook for intersection observer animations
-function useRevealOnScroll() {
-    const ref = useRef<HTMLDivElement>(null);
-    
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            },
-            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-        );
-        
-        const elements = ref.current?.querySelectorAll('.reveal');
-        elements?.forEach((el) => observer.observe(el));
-        
-        return () => observer.disconnect();
-    }, []);
-    
-    return ref;
-}
 
 export default function Home() {
     const { t, i18n } = useTranslation();
