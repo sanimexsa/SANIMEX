@@ -66,7 +66,7 @@ export default function Logistics() {
                         {lang === 'ar' ? 'نقل البضائع.\nإدارة الأصول.' : lang === 'fr' ? 'Transporter les Marchandises.\nGérer les Actifs.' : 'Moving Goods.\nManaging Assets.'}
                     </h1>
                     <p className="slide-up delay-200 text-xl md:text-2xl text-slate-100 max-w-3xl font-sans leading-relaxed">
-                        {lang === 'ar' ? 'من التوصيل للميل الأخير في تشاد الحبيسة إلى التخزين الاستراتيجي وإدارة الممتلكات — نحن نبقي الأمور تتحرك.' : lang === 'fr' ? 'De la livraison du dernier kilomètre au Tchad enclavé à l\'entreposage stratégique et la gestion immobilière — nous gardons les choses en mouvement.' : 'From last-mile delivery in landlocked Chad to strategic warehousing and property management — we keep things moving.'}
+                        {lang === 'ar' ? 'من التوصيل للميل الأخير في تشاد الحبيسة إلى التخزين الاستراتيجي وإدارة الممتلكات، نحن نبقي الأمور تتحرك.' : lang === 'fr' ? 'De la livraison du dernier kilomètre au Tchad enclavé à l\'entreposage stratégique et la gestion immobilière, nous gardons les choses en mouvement.' : 'From last-mile delivery in landlocked Chad to strategic warehousing and property management, we keep things moving.'}
                     </p>
                 </div>
             </section>
@@ -99,7 +99,7 @@ export default function Logistics() {
                     <Handshake className="w-20 h-20 mx-auto mb-8 text-white" strokeWidth={1.5} />
                     <h2 className="text-4xl md:text-5xl font-bold mb-8">{lang === 'ar' ? 'شريك معتمد لليونيسف' : lang === 'fr' ? 'Partenaire Certifié UNICEF' : 'UNICEF Certified Partner'}</h2>
                     <p className="text-xl text-green-100 font-sans max-w-2xl mx-auto leading-relaxed">
-                        {lang === 'ar' ? 'لأكثر من 10 سنوات، قدمنا الدعم اللوجستي للميل الأخير لعمليات اليونيسف في تشاد — نوصل الإمدادات الأساسية إلى بعض المناطق الأكثر عزلة في أفريقيا.' : lang === 'fr' ? 'Depuis plus de 10 ans, nous fournissons un soutien logistique du dernier kilomètre pour les opérations de l\'UNICEF au Tchad — livrant des fournitures essentielles dans certaines des régions les plus reculées d\'Afrique.' : 'For over 10 years, we\'ve provided last-mile logistics support for UNICEF operations in Chad — delivering essential supplies to some of the most remote regions in Africa.'}
+                        {lang === 'ar' ? 'لأكثر من 10 سنوات، قدمنا الدعم اللوجستي للميل الأخير لعمليات اليونيسف في تشاد، نوصل الإمدادات الأساسية إلى بعض المناطق الأكثر عزلة في أفريقيا.' : lang === 'fr' ? 'Depuis plus de 10 ans, nous fournissons un soutien logistique du dernier kilomètre pour les opérations de l\'UNICEF au Tchad, livrant des fournitures essentielles dans certaines des régions les plus reculées d\'Afrique.' : 'For over 10 years, we\'ve provided last-mile logistics support for UNICEF operations in Chad, delivering essential supplies to some of the most remote regions in Africa.'}
                     </p>
                     <Link 
                         to="/contact" 

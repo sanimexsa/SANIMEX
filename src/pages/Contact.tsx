@@ -35,6 +35,12 @@ export default function Contact() {
     const lang = i18n.language;
     const containerRef = useRevealOnScroll();
 
+    const errorMessages = {
+        en: "Oops! There was a problem submitting your form. Please try again or email us directly at aa@sanimexsa.com",
+        fr: "Oups ! Un problème est survenu lors de l'envoi de votre formulaire. Veuillez réessayer ou nous contacter directement à aa@sanimexsa.com",
+        ar: "عذرًا! حدثت مشكلة أثناء إرسال النموذج. يرجى المحاولة مرة أخرى أو مراسلتنا مباشرة على aa@sanimexsa.com"
+    };
+
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
@@ -55,10 +61,10 @@ export default function Contact() {
                 setSubmitted(true);
                 form.reset();
             } else {
-                alert("Oops! There was a problem submitting your form. Please try again or email us directly at aa@sanimexsa.com");
+                alert(errorMessages[lang as keyof typeof errorMessages] || errorMessages.en);
             }
         } catch {
-            alert("Oops! There was a problem submitting your form. Please try again or email us directly at aa@sanimexsa.com");
+            alert(errorMessages[lang as keyof typeof errorMessages] || errorMessages.en);
         } finally {
             setIsSubmitting(false);
         }
@@ -67,7 +73,7 @@ export default function Contact() {
     const t = {
         en: {
             title: "Let's Talk",
-            subtitle: "Whether you're sourcing acacia gum, need infrastructure expertise, or logistics support — we're here to help.",
+            subtitle: "Whether you're sourcing acacia gum, need infrastructure expertise, or logistics support, we're here to help.",
             send: "Send a Message",
             sent: "Message Sent!",
             sentSub: "We'll get back to you within 24-48 hours.",
@@ -87,7 +93,7 @@ export default function Contact() {
         },
         fr: {
             title: "Parlons",
-            subtitle: "Que vous cherchiez de la gomme arabique, des services de construction ou un support logistique — nous sommes là pour vous aider.",
+            subtitle: "Que vous cherchiez de la gomme arabique, des services de construction ou un support logistique, nous sommes là pour vous aider.",
             send: "Envoyer un Message",
             sent: "Message Envoyé!",
             sentSub: "Nous vous répondrons dans les 24 à 48 heures.",
@@ -107,7 +113,7 @@ export default function Contact() {
         },
         ar: {
             title: "دعنا نتحدث",
-            subtitle: "سواء كنت تبحث عن الصمغ العربي، أو خدمات البناء، أو الدعم اللوجستي — نحن هنا للمساعدة.",
+            subtitle: "سواء كنت تبحث عن الصمغ العربي، أو خدمات البناء، أو الدعم اللوجستي، نحن هنا للمساعدة.",
             send: "أرسل رسالة",
             sent: "تم إرسال الرسالة!",
             sentSub: "سنرد عليك خلال 24-48 ساعة.",

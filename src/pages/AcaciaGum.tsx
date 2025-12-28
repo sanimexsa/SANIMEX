@@ -5,9 +5,9 @@ import { useEffect, useRef } from 'react';
 import { CheckCircle2, Ship, ClipboardList, Factory, Leaf, Shield, type LucideIcon } from 'lucide-react';
 
 const stats = [
-    { value: '20+', labelEn: 'Tonnes/Year Capacity', labelFr: 'Tonnes/An Capacité', labelAr: 'طن/سنة القدرة' },
-    { value: '10+', labelEn: 'Years Export Experience', labelFr: 'Années d\'Expérience Export', labelAr: 'سنوات خبرة التصدير' },
-    { value: '3rd', labelEn: 'Largest Exporter (Chad)', labelFr: 'Plus Grand Exportateur (Tchad)', labelAr: 'أكبر مصدر (تشاد)' },
+    { value: '20+', valueAr: '+٢٠', labelEn: 'Tonnes/Year Capacity', labelFr: 'Tonnes/An Capacité', labelAr: 'طن/سنة القدرة' },
+    { value: '10+', valueAr: '+١٠', labelEn: 'Years Export Experience', labelFr: 'Années d\'Expérience Export', labelAr: 'سنوات خبرة التصدير' },
+    { value: '3rd', valueFr: '3e', valueAr: '٣', labelEn: 'Largest Exporter (Chad)', labelFr: 'Plus Grand Exportateur (Tchad)', labelAr: 'أكبر مصدر (تشاد)' },
 ];
 
 const advantages: { Icon: LucideIcon; titleEn: string; titleFr: string; titleAr: string; descEn: string; descFr: string; descAr: string }[] = [
@@ -68,7 +68,7 @@ export default function AcaciaGum() {
             marketP2: 'Our acacia gum is sourced from sustainable harvesting practices in Chad\'s gum belt region.',
             marketP3: 'Sanimex offers both Acacia Senegal (Hashab) and Acacia Seyal varieties for food, beverage, and pharmaceutical applications.',
             ctaTitle: 'Let\'s Discuss Your Needs',
-            ctaSubtitle: 'Whether you need bulk supply, spot purchases, or long-term contracts — we\'re ready to talk.'
+            ctaSubtitle: 'Whether you need bulk supply, spot purchases, or long-term contracts, we\'re ready to talk.'
         },
         fr: {
             subtitle: 'Export de Gomme Arabique',
@@ -82,7 +82,7 @@ export default function AcaciaGum() {
             marketP2: 'Notre gomme arabique provient de pratiques de récolte durables dans la région de la ceinture de gomme du Tchad.',
             marketP3: 'Sanimex propose des variétés Acacia Senegal (Hashab) et Acacia Seyal pour les applications alimentaires, de boissons et pharmaceutiques.',
             ctaTitle: 'Discutons de Vos Besoins',
-            ctaSubtitle: 'Que vous ayez besoin d\'approvisionnement en gros, d\'achats ponctuels ou de contrats à long terme — nous sommes prêts à en parler.'
+            ctaSubtitle: 'Que vous ayez besoin d\'approvisionnement en gros, d\'achats ponctuels ou de contrats à long terme, nous sommes prêts à en parler.'
         },
         ar: {
             subtitle: 'تصدير الصمغ العربي',
@@ -96,12 +96,13 @@ export default function AcaciaGum() {
             marketP2: 'يتم الحصول على الصمغ العربي لدينا من ممارسات الحصاد المستدامة في منطقة حزام الصمغ في تشاد.',
             marketP3: 'تقدم سانيمكس أصناف أكاسيا السنغال (الهشاب) وأكاسيا سيال للتطبيقات الغذائية والمشروبات والصيدلانية.',
             ctaTitle: 'دعنا نناقش احتياجاتك',
-            ctaSubtitle: 'سواء كنت بحاجة إلى توريد بالجملة أو مشتريات فورية أو عقود طويلة الأجل — نحن مستعدون للتحدث.'
+            ctaSubtitle: 'سواء كنت بحاجة إلى توريد بالجملة أو مشتريات فورية أو عقود طويلة الأجل، نحن مستعدون للتحدث.'
         }
     };
 
     const content = text[lang as keyof typeof text] || text.en;
     const getLabel = (s: typeof stats[0]) => lang === 'ar' ? s.labelAr : lang === 'fr' ? s.labelFr : s.labelEn;
+    const getValue = (s: typeof stats[0]) => lang === 'ar' && s.valueAr ? s.valueAr : lang === 'fr' && s.valueFr ? s.valueFr : s.value;
     const getTitle = (a: typeof advantages[0]) => lang === 'ar' ? a.titleAr : lang === 'fr' ? a.titleFr : a.titleEn;
     const getDesc = (a: typeof advantages[0]) => lang === 'ar' ? a.descAr : lang === 'fr' ? a.descFr : a.descEn;
 
@@ -157,7 +158,7 @@ export default function AcaciaGum() {
                 <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10 text-center">
                     {stats.map((stat, i) => (
                         <div key={stat.labelEn} className="reveal" style={{ animationDelay: `${i * 100}ms` }}>
-                            <div className="text-6xl font-bold mb-3">{stat.value}</div>
+                            <div className="text-6xl font-bold mb-3">{getValue(stat)}</div>
                             <div className="text-white/80 font-sans text-lg">{getLabel(stat)}</div>
                         </div>
                     ))}
