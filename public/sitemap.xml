@@ -1,28 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://sanimexsa.com/</loc>
-    <lastmod>2025-12-27</lastmod>
+    <loc>https://sanimexsa.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanimexsa.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sanimexsa.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sanimexsa.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanimexsa.com/en/"/>
+    <lastmod>2025-12-28</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://sanimexsa.com/acacia-gum</loc>
-    <lastmod>2025-12-27</lastmod>
+    <loc>https://sanimexsa.com/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanimexsa.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sanimexsa.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sanimexsa.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanimexsa.com/en/"/>
+    <lastmod>2025-12-28</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://sanimexsa.com/ar/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanimexsa.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sanimexsa.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sanimexsa.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanimexsa.com/en/"/>
+    <lastmod>2025-12-28</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://sanimexsa.com/en/acacia-gum</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanimexsa.com/en/acacia-gum"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sanimexsa.com/fr/acacia-gum"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sanimexsa.com/ar/acacia-gum"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanimexsa.com/en/acacia-gum"/>
+    <lastmod>2025-12-28</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sanimexsa.com/construction</loc>
-    <lastmod>2025-12-27</lastmod>
+    <loc>https://sanimexsa.com/fr/acacia-gum</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanimexsa.com/en/acacia-gum"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sanimexsa.com/fr/acacia-gum"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sanimexsa.com/ar/acacia-gum"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanimexsa.com/en/acacia-gum"/>
+    <lastmod>2025-12-28</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sanimexsa.com/logistics</loc>
-    <lastmod>2025-12-27</lastmod>
+    <loc>https://sanimexsa.com/ar/acacia-gum</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanimexsa.com/en/acacia-gum"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sanimexsa.com/fr/acacia-gum"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sanimexsa.com/ar/acacia-gum"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanimexsa.com/en/acacia-gum"/>
+    <lastmod>2025-12-28</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sanimexsa.com/contact</loc>
-    <lastmod>2025-12-27</lastmod>
+    <loc>https://sanimexsa.com/en/construction</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanimexsa.com/en/construction"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sanimexsa.com/fr/construction"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sanimexsa.com/ar/construction"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanimexsa.com/en/construction"/>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sanimexsa.com/fr/construction</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanimexsa.com/en/construction"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sanimexsa.com/fr/construction"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sanimexsa.com/ar/construction"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanimexsa.com/en/construction"/>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sanimexsa.com/ar/construction</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanimexsa.com/en/construction"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sanimexsa.com/fr/construction"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sanimexsa.com/ar/construction"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanimexsa.com/en/construction"/>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sanimexsa.com/en/logistics</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanimexsa.com/en/logistics"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sanimexsa.com/fr/logistics"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sanimexsa.com/ar/logistics"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanimexsa.com/en/logistics"/>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sanimexsa.com/fr/logistics</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanimexsa.com/en/logistics"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sanimexsa.com/fr/logistics"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sanimexsa.com/ar/logistics"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanimexsa.com/en/logistics"/>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sanimexsa.com/ar/logistics</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanimexsa.com/en/logistics"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sanimexsa.com/fr/logistics"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sanimexsa.com/ar/logistics"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanimexsa.com/en/logistics"/>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sanimexsa.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanimexsa.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sanimexsa.com/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sanimexsa.com/ar/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanimexsa.com/en/contact"/>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sanimexsa.com/fr/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanimexsa.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sanimexsa.com/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sanimexsa.com/ar/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanimexsa.com/en/contact"/>
+    <lastmod>2025-12-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sanimexsa.com/ar/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sanimexsa.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://sanimexsa.com/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sanimexsa.com/ar/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sanimexsa.com/en/contact"/>
+    <lastmod>2025-12-28</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>

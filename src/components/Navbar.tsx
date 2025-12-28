@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
+import { useLocalizedLink } from '@/hooks/useLocalizedLink';
 
 const languages = [
     { code: 'ar', label: 'عربي' },
@@ -12,28 +13,36 @@ const languages = [
 export default function Navbar() {
     const { t, i18n } = useTranslation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
     const lang = i18n.language;
 
+    // Note: document attributes are now set in LanguageWrapper component
+    // but keeping this as a fallback
     useEffect(() => {
         document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
         document.documentElement.lang = lang;
     }, [lang]);
 
-    const changeLanguage = (lng: string) => {
-        i18n.changeLanguage(lng);
+    const changeLanguage = (newLang: string) => {
+        // Extract current path without language prefix
+        const currentPath = location.pathname.replace(/^\/(ar|en|fr)/, '');
+        // Navigate to new language URL
+        navigate(`/${newLang}${currentPath || '/'}`);
+        i18n.changeLanguage(newLang);
         setIsMenuOpen(false);
     };
 
     const navItems = [
-        { to: '/acacia-gum', label: t('nav.acaciaGum') },
-        { to: '/construction', label: t('nav.construction') },
-        { to: '/logistics', label: t('nav.logistics') },
+        { to: useLocalizedLink('/acacia-gum'), label: t('nav.acaciaGum') },
+        { to: useLocalizedLink('/construction'), label: t('nav.construction') },
+        { to: useLocalizedLink('/logistics'), label: t('nav.logistics') },
     ];
 
     return (
         <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-[hsl(var(--sanimex-gray-100))] z-50">
             <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-                <Link to="/" className="text-2xl font-bold tracking-tighter text-[hsl(var(--sanimex-dark))]" dir="ltr">
+                <Link to={useLocalizedLink('/')} className="text-2xl font-bold tracking-tighter text-[hsl(var(--sanimex-dark))]" dir="ltr">
                     SANIMEX S.A
                 </Link>
 
@@ -49,7 +58,7 @@ export default function Navbar() {
                         </Link>
                     ))}
                     <Button asChild className="bg-[hsl(var(--sanimex-blue-900))] hover:bg-[hsl(var(--sanimex-blue-800))] rounded-full">
-                        <Link to="/contact">{t('contact')}</Link>
+                        <Link to={useLocalizedLink('/contact')}>{t('contact')}</Link>
                     </Button>
                 </div>
 
@@ -97,7 +106,7 @@ export default function Navbar() {
                             </Link>
                         ))}
                         <Button asChild className="bg-[hsl(var(--sanimex-blue-900))] hover:bg-[hsl(var(--sanimex-blue-800))] rounded-full w-full py-6 text-lg">
-                            <Link to="/contact" onClick={() => setIsMenuOpen(false)}>{t('contact')}</Link>
+                            <Link to={useLocalizedLink('/contact')} onClick={() => setIsMenuOpen(false)}>{t('contact')}</Link>
                         </Button>
                     </div>
                 </div>

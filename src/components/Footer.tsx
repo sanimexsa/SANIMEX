@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useLocalizedLink } from '@/hooks/useLocalizedLink';
 
 export default function Footer() {
     const { i18n } = useTranslation();
@@ -61,17 +62,17 @@ export default function Footer() {
                     <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-[0.15em]">{content.sectors}</h4>
                     <ul className="space-y-3 text-sm">
                         <li>
-                            <Link to="/acacia-gum" className="hover:text-white transition-colors duration-200 link-hover inline-block">
+                            <Link to={useLocalizedLink('/acacia-gum')} className="hover:text-white transition-colors duration-200 link-hover inline-block">
                                 {content.acaciaGum}
                             </Link>
                         </li>
                         <li>
-                            <Link to="/construction" className="hover:text-white transition-colors duration-200 link-hover inline-block">
+                            <Link to={useLocalizedLink('/construction')} className="hover:text-white transition-colors duration-200 link-hover inline-block">
                                 {content.construction}
                             </Link>
                         </li>
                         <li>
-                            <Link to="/logistics" className="hover:text-white transition-colors duration-200 link-hover inline-block">
+                            <Link to={useLocalizedLink('/logistics')} className="hover:text-white transition-colors duration-200 link-hover inline-block">
                                 {content.logistics}
                             </Link>
                         </li>
@@ -82,7 +83,7 @@ export default function Footer() {
                     <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-[0.15em]">{content.contact}</h4>
                     <ul className="space-y-3 text-sm">
                         <li>
-                            <Link to="/contact" className="hover:text-white transition-colors duration-200 link-hover inline-block">
+                            <Link to={useLocalizedLink('/contact')} className="hover:text-white transition-colors duration-200 link-hover inline-block">
                                 {content.sendMessage}
                             </Link>
                         </li>

@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet-async';
 import { useEffect, useRef } from 'react';
+import SEOHead from '@/components/SEOHead';
+import { seoMetadata } from '@/data/seo-metadata';
+import { useLocalizedLink } from '@/hooks/useLocalizedLink';
+import { getOrganizationSchema } from '@/data/schemas/organization';
+import { getLocalBusinessSchema } from '@/data/schemas/business';
 
-const sectors = [
-    { key: 'acaciaGum', icon: '🌳', path: '/acacia-gum', highlight: true },
-    { key: 'construction', icon: '🏗️', path: '/construction', highlight: false },
-    { key: 'logistics', icon: '🚛', path: '/logistics', highlight: false },
-];
 
 interface Partner {
     name: string;
@@ -96,6 +95,13 @@ export default function Home() {
     const lang = i18n.language;
     const containerRef = useRevealOnScroll();
 
+    // Localized sector paths
+    const sectors = [
+        { key: 'acaciaGum', icon: '🌳', path: useLocalizedLink('/acacia-gum'), highlight: true },
+        { key: 'construction', icon: '🏗️', path: useLocalizedLink('/construction'), highlight: false },
+        { key: 'logistics', icon: '🚛', path: useLocalizedLink('/logistics'), highlight: false },
+    ];
+
     const getPartnerLogo = (p: Partner) => {
         if (lang === 'ar' && p.logoAr) return p.logoAr;
         if (lang === 'fr' && p.logoFr) return p.logoFr;
@@ -108,13 +114,18 @@ export default function Home() {
         return p.name;
     };
 
+    // Get SEO metadata for current language
+    const seo = seoMetadata.home[lang as keyof typeof seoMetadata.home] || seoMetadata.home.en;
+
+    // Generate structured data schemas
+    const schemas = [
+        getOrganizationSchema(lang),
+        getLocalBusinessSchema(lang),
+    ];
+
     return (
         <div ref={containerRef} className="font-serif">
-            <Helmet>
-                <title>{lang === 'ar' ? 'سانيميكس | الصمغ العربي والبناء والخدمات اللوجستية في تشاد' : lang === 'fr' ? 'SANIMEX | Gomme Arabique, Construction et Logistique au Tchad' : 'SANIMEX | Acacia Gum, Construction & Logistics in Chad'}</title>
-                <meta name="description" content={lang === 'ar' ? 'سانيميكس هي شركة رائدة في تشاد متخصصة في تصدير الصمغ العربي وخدمات البناء والحلول اللوجستية منذ عام ١٩٩٣.' : lang === 'fr' ? 'SANIMEX est un leader au Tchad spécialisé dans l\'exportation de gomme arabique, les services de construction et les solutions logistiques depuis 1993.' : 'SANIMEX is a leader in Chad specializing in acacia gum export, construction services, and logistics solutions since 1993.'} />
-                <meta name="keywords" content="SANIMEX, Sanimex Chad, Sanimex Tchad, Sanimex S.A., Acacia Gum Chad, Gomme Arabique Tchad, Construction Chad, Logistics Chad, Logistique Tchad" />
-            </Helmet>
+            <SEOHead {...seo} type="website" jsonLd={schemas} />
             
             {/* Hero Section - Desert Modernism Style */}
             <section className="relative pt-36 pb-28 px-6 mesh-gradient grain overflow-hidden">
@@ -133,8 +144,8 @@ export default function Home() {
                         {t('subhero')}
                     </p>
                     <div className="slide-up delay-300 flex flex-wrap justify-center gap-5">
-                        <Link 
-                            to="/acacia-gum" 
+                        <Link
+                            to={useLocalizedLink('/acacia-gum')}
                             className="group bg-[hsl(var(--sanimex-blue-900))] text-white px-10 py-5 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-[hsl(var(--sanimex-blue-800))] hover:scale-[1.02] hover:shadow-[0_20px_40px_-10px_hsla(213,52%,24%,0.4)]"
                         >
                             <span className="flex items-center gap-2">
@@ -144,8 +155,8 @@ export default function Home() {
                                 </svg>
                             </span>
                         </Link>
-                        <Link 
-                            to="/contact" 
+                        <Link
+                            to={useLocalizedLink('/contact')} 
                             className="border-2 border-[hsl(var(--sanimex-blue-900))] text-[hsl(var(--sanimex-blue-900))] px-10 py-5 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-[hsl(var(--sanimex-blue-900))] hover:text-white"
                         >
                             {t('contact')}

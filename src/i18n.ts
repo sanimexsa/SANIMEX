@@ -7,8 +7,21 @@ import ar from './locales/ar.json';
 
 import LanguageDetector from 'i18next-browser-languagedetector';
 
+// Custom language detector that reads from URL path
+const urlLanguageDetector = {
+    name: 'urlPath',
+    lookup() {
+        const match = window.location.pathname.match(/^\/(ar|en|fr)\//);
+        return match ? match[1] : undefined;
+    },
+};
+
+// Create custom detector that includes our URL detector
+const customDetector = new LanguageDetector();
+customDetector.addDetector(urlLanguageDetector);
+
 i18n
-    .use(LanguageDetector)
+    .use(customDetector)
     .use(initReactI18next)
     .init({
         resources: {
@@ -18,7 +31,7 @@ i18n
         },
         fallbackLng: 'en',
         detection: {
-            order: ['localStorage', 'cookie', 'htmlTag', 'path', 'subdomain'],
+            order: ['urlPath', 'localStorage', 'cookie', 'htmlTag'],
             caches: ['localStorage'],
         },
         interpolation: {

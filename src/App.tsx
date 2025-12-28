@@ -8,6 +8,8 @@ import Construction from './pages/Construction';
 import Logistics from './pages/Logistics';
 import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollToTop';
+import LanguageWrapper from './components/LanguageWrapper';
+import LanguageRedirect from './components/LanguageRedirect';
 
 function App() {
   return (
@@ -25,11 +27,16 @@ function App() {
           <Navbar />
           <main id="main-content" className="flex-grow" tabIndex={-1}>
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/acacia-gum" element={<AcaciaGum />} />
-              <Route path="/construction" element={<Construction />} />
-              <Route path="/logistics" element={<Logistics />} />
-              <Route path="/contact" element={<Contact />} />
+              {/* Language-prefixed routes */}
+              <Route path="/:lang" element={<LanguageWrapper />}>
+                <Route index element={<Home />} />
+                <Route path="acacia-gum" element={<AcaciaGum />} />
+                <Route path="construction" element={<Construction />} />
+                <Route path="logistics" element={<Logistics />} />
+                <Route path="contact" element={<Contact />} />
+              </Route>
+              {/* Redirect legacy URLs without language prefix */}
+              <Route path="*" element={<LanguageRedirect />} />
             </Routes>
           </main>
           <Footer />
