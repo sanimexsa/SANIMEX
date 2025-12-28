@@ -10,11 +10,19 @@ Before starting any work, read and follow these skills:
    - Create PR instead of pushing to main
    - Wait for CI before merging
 
-2. **Brand Guidelines** (`skills/brand-guidelines/SKILL.md`) - For UI/design work
+2. **Web Artifacts Builder** (`skills/web-artifacts-builder/SKILL.md`) - For building React components
+   - Component patterns, animation classes, i18n
+   - Avoid "AI slop" (no purple gradients, excessive centering)
 
-3. **Frontend Design** (`skills/frontend-design/SKILL.md`) - For component development
+3. **Brand Guidelines** (`skills/brand-guidelines/SKILL.md`) - For UI/design work
 
-4. **Web Testing** (`skills/webapp-testing/SKILL.md`) - For test-related tasks
+4. **Frontend Design** (`skills/frontend-design/SKILL.md`) - For component development
+
+5. **Web Testing** (`skills/webapp-testing/SKILL.md`) - For test-related tasks
+
+6. **Canvas Design** (`skills/canvas-design/SKILL.md`) - For design mockups
+
+7. **Theme Factory** (`skills/theme-factory/SKILL.md`) - For theming/styling
 
 ## Git Workflow Summary (Always Follow)
 
