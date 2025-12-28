@@ -30,11 +30,21 @@ Standardized procedure for managing issues, branching, and pull requests to ensu
 - **Merge Method**: Squash and merge to keep `main` history clean.
 - **Cleanup**: Delete the feature/fix branch after merging.
 
+## Exceptions (Direct to main allowed)
+
+The following changes may be committed directly to `main` without an issue or PR:
+
+- **Documentation-only changes**: README.md, CLAUDE.md, inline comments
+- **Configuration/meta files**: .gitignore, linter configs, CI configs
+- **Trivial fixes**: Typos, whitespace, formatting
+
+All code changes that affect functionality must follow the full workflow.
+
 ## Procedure
-1. `issue_write(create, title, body)` -> Note `#ISSUE_NUMBER`.
-2. `create_branch(branch_name)`.
+1. `gh issue create --title "..." --body "..."` -> Note `#ISSUE_NUMBER`.
+2. `git checkout -b feat/description` or `fix/description`.
 3. Perform implementation.
-4. `push_files(...)` to the new branch.
-5. `create_pull_request(title, body, head, base: 'main')`.
+4. `git push -u origin branch-name`.
+5. `gh pr create --title "..." --body "Closes #ISSUE_NUMBER"`.
 6. Wait for CI/Approval.
 7. Merge and close.
