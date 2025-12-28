@@ -41,7 +41,9 @@ const partners: Partner[] = [
         name: 'World Bank',
         nameAr: 'البنك الدولي',
         nameFr: 'Banque Mondiale',
-        logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/The_World_Bank_logo.svg/200px-The_World_Bank_logo.svg.png'
+        logo: 'https://www.worldbank.org/content/dam/wbr/logo/logo-wb-header-en.svg',
+        logoFr: 'https://www.banquemondiale.org/content/dam/wbr/logo/logo-wb-header-fr.svg',
+        logoAr: 'https://www.albankaldawli.org/content/dam/wbr/logo/logo-wb-header-ar.svg'
     },
 
     {

@@ -20,7 +20,7 @@ export const seoMetadata: SEOMetadata = {
       description:
         'SANIMEX is a leader in Chad specializing in acacia gum export, construction services, and logistics solutions since 1993. Family-owned multi-sector enterprise.',
       keywords:
-        'SANIMEX, SANIMEX Chad, SANIMEX Tchad, Sanimex S.A., Acacia Gum Chad, Construction Chad, Logistics Chad, Gum Arabic Export, N\'Djamena, سانيميكس تشاد',
+        'SANIMEX, SANIMEX Chad, Sanimex S.A., Acacia Gum Chad, Construction Chad, Logistics Chad, Gum Arabic Export, N\'Djamena, Chad Business',
       image: 'https://sanimexsa.com/og-home-en.jpg',
     },
     fr: {
@@ -47,7 +47,7 @@ export const seoMetadata: SEOMetadata = {
       description:
         'High-quality acacia gum export from Chad. SANIMEX is Chad\'s 3rd largest exporter, supplying Alland & Robert for 10+ years. Premium gum arabic direct from source.',
       keywords:
-        'SANIMEX, SANIMEX Tchad, Acacia Gum Chad, Gum Arabic Export, Gomme Arabique, الصمغ العربي, Acacia Senegal, Hashab Gum, Alland Robert Supplier',
+        'SANIMEX, SANIMEX Chad, Acacia Gum Chad, Gum Arabic Export, Acacia Senegal, Hashab Gum, Alland Robert Supplier, Chad Gum Arabic',
       image: 'https://sanimexsa.com/og-acacia-en.jpg',
     },
     fr: {
@@ -74,7 +74,7 @@ export const seoMetadata: SEOMetadata = {
       description:
         'Professional construction services in Chad. SANIMEX has been building Chad\'s infrastructure since 1993. Government buildings, commercial projects, and more.',
       keywords:
-        'SANIMEX, SANIMEX Tchad, Construction Chad, BTP Tchad, Génie Civil Tchad, Chad Construction Company, N\'Djamena Builder, Infrastructure Chad',
+        'SANIMEX, SANIMEX Chad, Construction Chad, Chad Construction Company, N\'Djamena Builder, Infrastructure Chad, Building Contractor Chad',
       image: 'https://sanimexsa.com/og-construction-en.jpg',
     },
     fr: {
@@ -101,7 +101,7 @@ export const seoMetadata: SEOMetadata = {
       description:
         'Professional logistics and warehousing services in Chad. SANIMEX is a UNICEF-certified partner. Transport, real estate management, and storage solutions.',
       keywords:
-        'SANIMEX, SANIMEX Chad, SANIMEX Tchad, Logistics Chad, Warehousing Chad, Transport Chad, UNICEF Partner, Real Estate Management Chad, Supply Chain Chad',
+        'SANIMEX, SANIMEX Chad, Logistics Chad, Warehousing Chad, Transport Chad, UNICEF Partner, Real Estate Management Chad, Supply Chain Chad',
       image: 'https://sanimexsa.com/og-logistics-en.jpg',
     },
     fr: {
