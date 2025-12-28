@@ -34,10 +34,10 @@ export default function SEOHead({
       <link rel="canonical" href={seo.canonicalUrl} />
 
       {/* Hreflang Tags for International SEO */}
-      <link rel="alternate" hreflang="en" href={seo.alternateUrls.en} />
-      <link rel="alternate" hreflang="fr" href={seo.alternateUrls.fr} />
-      <link rel="alternate" hreflang="ar" href={seo.alternateUrls.ar} />
-      <link rel="alternate" hreflang="x-default" href={seo.alternateUrls.en} />
+      <link rel="alternate" hrefLang="en" href={seo.alternateUrls.en} />
+      <link rel="alternate" hrefLang="fr" href={seo.alternateUrls.fr} />
+      <link rel="alternate" hrefLang="ar" href={seo.alternateUrls.ar} />
+      <link rel="alternate" hrefLang="x-default" href={seo.alternateUrls.en} />
 
       {/* Open Graph Tags */}
       <meta property="og:type" content={seo.ogData.type} />
