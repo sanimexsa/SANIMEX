@@ -36,13 +36,19 @@ jobs:
       - name: Run E2E Tests
         run: npm run test:e2e
 
-      - name: Install Puppeteer Chrome (for react-snap)
-        run: npx puppeteer browsers install chrome
+      - name: Install Chrome for react-snap
+        run: |
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/google-chrome.gpg
+          echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
 
       - name: Build
         run: |
           npm run build
           cp dist/index.html dist/404.html
+        env:
+          PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome-stable
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
