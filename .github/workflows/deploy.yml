@@ -36,6 +36,9 @@ jobs:
       - name: Run E2E Tests
         run: npm run test:e2e
 
+      - name: Install Puppeteer Chrome (for react-snap)
+        run: npx puppeteer browsers install chrome
+
       - name: Build
         run: |
           npm run build
