@@ -1,8 +1,10 @@
 import { useState, type FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet-async';
 import { CheckCircle2, Phone, MapPin, TreeDeciduous } from 'lucide-react';
+import SEOHead from '@/components/SEOHead';
+import { seoMetadata } from '@/data/seo-metadata';
 import { useRevealOnScroll } from '@/hooks/useRevealOnScroll';
+import { getContactPageSchema } from '@/data/schemas/contact';
 
 export default function Contact() {
     const [submitted, setSubmitted] = useState(false);
@@ -111,13 +113,13 @@ export default function Contact() {
 
     const text = t[lang as keyof typeof t] || t.en;
 
+    // Get SEO metadata and schema for current language
+    const seo = seoMetadata.contact[lang as keyof typeof seoMetadata.contact] || seoMetadata.contact.en;
+    const schema = getContactPageSchema(lang);
+
     return (
         <div ref={containerRef} className="font-serif">
-            <Helmet>
-                <title>{lang === 'ar' ? 'اتصل بنا | سانيميكس تشاد' : lang === 'fr' ? 'Contactez-nous | SANIMEX Tchad' : 'Contact Us | SANIMEX Chad'}</title>
-                <meta name="description" content={lang === 'ar' ? 'اتصل بسانيميكس للاستفسار عن الصمغ العربي أو البناء أو الخدمات اللوجستية في تشاد.' : lang === 'fr' ? 'Contactez SANIMEX pour vos besoins en gomme arabique, construction ou logistique au Tchad.' : 'Contact SANIMEX for your acacia gum, construction, or logistics needs in Chad.'} />
-                <meta name="keywords" content="Contact SANIMEX, Sanimex Tchad Phone, Sanimex Chad Address" />
-            </Helmet>
+            <SEOHead {...seo} type="website" jsonLd={schema} />
             
             {/* Hero Section */}
             <section className="pt-36 pb-20 px-6 bg-[hsl(var(--sanimex-off-white))]">
