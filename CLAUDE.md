@@ -52,6 +52,19 @@ Before starting any work, read and follow these skills:
 - `tests/` - Playwright E2E tests
 - `skills/` - Project skills documentation
 
+## Pre-Commit Verification (MANDATORY)
+
+Before EVERY push to the repository, run these commands in order:
+
+1. **Lint**: `npm run lint` - must pass with no errors (warnings OK)
+2. **TypeScript**: `npx tsc --noEmit` - must pass with no errors
+3. **Tests**: `npm test` - all tests must pass
+4. **Build**: `npm run build` - must complete successfully
+
+**CRITICAL**: Do NOT push if any of these fail. Fix the issue first.
+
+This ensures CI will pass and prevents breaking the main branch.
+
 ## Sub-Agent and Retry Limits (CRITICAL)
 
 To prevent infinite loops and excessive token consumption:
