@@ -29,10 +29,5 @@
     "portfolio": {
         "title": "Landmark Projects",
         "subtitle": "10+ major institutional projects. Here are three signature works."
-    },
-    "partners": {
-        "worldbank": "World Bank Partner",
-        "unicef": "UNICEF Logistics Partner",
-        "afdb": "AfDB Strategic Partner"
     }
 }
