@@ -40,11 +40,25 @@ The following changes may be committed directly to `main` without an issue or PR
 
 All code changes that affect functionality must follow the full workflow.
 
+## 6. Pre-Push Verification (MANDATORY)
+
+Before EVERY `git push`, run these commands locally:
+
+1. `npm run lint` - must pass with no errors (warnings OK)
+2. `npx tsc --noEmit` - must pass with no errors
+3. `npm test` - all tests must pass
+4. `npm run build` - must complete successfully
+
+**CRITICAL**: Do NOT push if any of these fail. Fix the issue first.
+
+This ensures CI will pass and prevents breaking the main branch.
+
 ## Procedure
 1. `gh issue create --title "..." --body "..."` -> Note `#ISSUE_NUMBER`.
 2. `git checkout -b feat/description` or `fix/description`.
 3. Perform implementation.
-4. `git push -u origin branch-name`.
-5. `gh pr create --title "..." --body "Closes #ISSUE_NUMBER"`.
-6. Wait for CI/Approval.
-7. Merge and close.
+4. Run pre-push verification (lint, tsc, test, build).
+5. `git push -u origin branch-name`.
+6. `gh pr create --title "..." --body "Closes #ISSUE_NUMBER"`.
+7. Wait for CI/Approval.
+8. Merge and close.

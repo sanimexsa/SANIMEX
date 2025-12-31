@@ -24,16 +24,17 @@ Before starting any work, read and follow these skills:
 
 7. **Theme Factory** (`skills/theme-factory/SKILL.md`) - For theming/styling
 
-## Git Workflow Summary (Always Follow)
+## Git Workflow (MANDATORY)
 
-1. **Never push directly to `main`**
-2. Create issue: `gh issue create --title "..." --body "..."`
-3. Create branch: `git checkout -b feat/description` or `fix/description`
-4. Make commits following Conventional Commits (`feat:`, `fix:`, `docs:`)
-5. Push branch: `git push -u origin branch-name`
-6. Create PR: `gh pr create --title "..." --body "Closes #ISSUE_NUMBER"`
-7. Wait for CI checks to pass
-8. Merge via GitHub (squash and merge)
+**For ALL git/GitHub commands, follow `skills/git-workflow/SKILL.md` exactly.**
+
+Quick reference:
+1. Create issue first
+2. Create feature/fix branch
+3. Make commits (Conventional Commits)
+4. **Run pre-push verification (lint, tsc, test, build)**
+5. Push branch and create PR
+6. Wait for CI, then merge
 
 ## Tech Stack
 
@@ -51,19 +52,6 @@ Before starting any work, read and follow these skills:
 - `src/data/` - SEO metadata, schemas
 - `tests/` - Playwright E2E tests
 - `skills/` - Project skills documentation
-
-## Pre-Commit Verification (MANDATORY)
-
-Before EVERY push to the repository, run these commands in order:
-
-1. **Lint**: `npm run lint` - must pass with no errors (warnings OK)
-2. **TypeScript**: `npx tsc --noEmit` - must pass with no errors
-3. **Tests**: `npm test` - all tests must pass
-4. **Build**: `npm run build` - must complete successfully
-
-**CRITICAL**: Do NOT push if any of these fail. Fix the issue first.
-
-This ensures CI will pass and prevents breaking the main branch.
 
 ## Sub-Agent and Retry Limits (CRITICAL)
 
