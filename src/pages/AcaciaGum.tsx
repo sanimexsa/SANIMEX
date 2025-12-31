@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet-async';
-import { useEffect, useRef } from 'react';
 import { CheckCircle2, Ship, ClipboardList, Factory, Leaf, Shield, type LucideIcon } from 'lucide-react';
+import SEOHead from '@/components/SEOHead';
+import { seoMetadata } from '@/data/seo-metadata';
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll';
+import { getAcaciaGumProductSchema } from '@/data/schemas/product';
 
 const stats = [
     { value: '20+', valueAr: '+٢٠', labelEn: 'Tonnes/Year Capacity', labelFr: 'Tonnes/An Capacité', labelAr: 'طن/سنة القدرة' },
@@ -24,31 +26,6 @@ const certifications: { Icon: LucideIcon; label: string; bg: string }[] = [
 ];
 
 import acaciaHero from '../assets/images/acacia.png';
-
-// Hook for intersection observer animations
-function useRevealOnScroll() {
-    const ref = useRef<HTMLDivElement>(null);
-    
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            },
-            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-        );
-        
-        const elements = ref.current?.querySelectorAll('.reveal');
-        elements?.forEach((el) => observer.observe(el));
-        
-        return () => observer.disconnect();
-    }, []);
-    
-    return ref;
-}
 
 export default function AcaciaGum() {
     const { t, i18n } = useTranslation();
@@ -106,13 +83,13 @@ export default function AcaciaGum() {
     const getTitle = (a: typeof advantages[0]) => lang === 'ar' ? a.titleAr : lang === 'fr' ? a.titleFr : a.titleEn;
     const getDesc = (a: typeof advantages[0]) => lang === 'ar' ? a.descAr : lang === 'fr' ? a.descFr : a.descEn;
 
+    // Get SEO metadata and schema for current language
+    const seo = seoMetadata.acaciaGum[lang as keyof typeof seoMetadata.acaciaGum] || seoMetadata.acaciaGum.en;
+    const schema = getAcaciaGumProductSchema(lang);
+
     return (
         <div ref={containerRef} className="font-serif">
-            <Helmet>
-                <title>{lang === 'ar' ? 'تصدير الصمغ العربي من تشاد | سانيميكس' : lang === 'fr' ? 'Export de Gomme Arabique du Tchad | SANIMEX' : 'Acacia Gum Export from Chad | SANIMEX'}</title>
-                <meta name="description" content={lang === 'ar' ? 'سانيميكس هي ثالث أكبر مصدر للصمغ العربي في تشاد، حيث توفر أصناف أكاسيا السنغال وأكاسيا سيال عالية الجودة عالمياً.' : lang === 'fr' ? 'SANIMEX est le 3ème plus grand exportateur de gomme arabique au Tchad, fournissant des variétés Acacia Senegal et Seyal de haute qualité.' : 'SANIMEX is the 3rd largest acacia gum exporter in Chad, providing high-quality Acacia Senegal and Seyal varieties globally.'} />
-                <meta name="keywords" content="Acacia Gum, Gomme Arabique, الصمغ العربي, Hashab, Seyal, Chad Export, Tchad Export, SANIMEX" />
-            </Helmet>
+            <SEOHead {...seo} type="website" jsonLd={schema} />
             
             {/* Hero Section */}
             <section className="relative pt-36 pb-32 px-6 min-h-[70vh] flex items-center overflow-hidden">

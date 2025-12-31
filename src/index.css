@@ -205,6 +205,36 @@ html {
   }
 }
 
+/* ===== Accessibility - Focus Indicators ===== */
+
+@layer utilities {
+  /* Enhanced focus styles for keyboard navigation */
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--sanimex-blue-900))] focus-visible:ring-offset-2;
+  }
+
+  /* Global focus styles for interactive elements */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid hsl(var(--sanimex-blue-900));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Remove default outline only when focus-visible styles apply */
+  a:focus:not(:focus-visible),
+  button:focus:not(:focus-visible),
+  input:focus:not(:focus-visible),
+  select:focus:not(:focus-visible),
+  textarea:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
 /* ===== Respect reduced motion ===== */
 @media (prefers-reduced-motion: reduce) {
   .reveal,

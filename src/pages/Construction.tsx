@@ -1,7 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet-async';
-import { useEffect, useRef } from 'react';
 import { Landmark, Scale, Shield, type LucideIcon } from 'lucide-react';
+import SEOHead from '@/components/SEOHead';
+import { seoMetadata } from '@/data/seo-metadata';
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll';
+import { getServiceSchema } from '@/data/schemas/service';
 
 const projects: { name: string; nameAr: string; nameFr: string; description: string; descriptionAr: string; descriptionFr: string; Icon: LucideIcon }[] = [
     { name: 'University of Pala', nameAr: 'جامعة بالا', nameFr: 'Université de Pala', description: 'Major regional educational infrastructure serving the Mayo-Kebbi West region.', descriptionAr: 'بنية تحتية تعليمية إقليمية رئيسية تخدم منطقة مايو كيبي الغربية.', descriptionFr: 'Infrastructure éducative régionale majeure desservant la région du Mayo-Kebbi Ouest.', Icon: Landmark },
@@ -11,31 +13,6 @@ const projects: { name: string; nameAr: string; nameFr: string; description: str
 
 import constructionHero from '../assets/images/construction.png';
 
-// Hook for intersection observer animations
-function useRevealOnScroll() {
-    const ref = useRef<HTMLDivElement>(null);
-    
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            },
-            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-        );
-        
-        const elements = ref.current?.querySelectorAll('.reveal');
-        elements?.forEach((el) => observer.observe(el));
-        
-        return () => observer.disconnect();
-    }, []);
-    
-    return ref;
-}
-
 export default function Construction() {
     const { t, i18n } = useTranslation();
     const lang = i18n.language;
@@ -44,13 +21,13 @@ export default function Construction() {
     const getName = (p: typeof projects[0]) => lang === 'ar' ? p.nameAr : lang === 'fr' ? p.nameFr : p.name;
     const getDesc = (p: typeof projects[0]) => lang === 'ar' ? p.descriptionAr : lang === 'fr' ? p.descriptionFr : p.description;
 
+    // Get SEO metadata and schema for current language
+    const seo = seoMetadata.construction[lang as keyof typeof seoMetadata.construction] || seoMetadata.construction.en;
+    const schema = getServiceSchema('construction', lang);
+
     return (
         <div ref={containerRef} className="font-serif">
-            <Helmet>
-                <title>{lang === 'ar' ? 'خدمات البناء في تشاد | سانيميكس' : lang === 'fr' ? 'Services de Construction au Tchad | SANIMEX' : 'Construction Services in Chad | SANIMEX'}</title>
-                <meta name="description" content={lang === 'ar' ? 'سانيميكس متخصصة في مشاريع البنية التحتية والمباني المؤسسية الكبرى في تشاد منذ عام ١٩٩٣.' : lang === 'fr' ? 'SANIMEX est spécialisée dans les projets d\'infrastructure et les grands bâtiments institutionnels au Tchad depuis 1993.' : 'SANIMEX specializes in infrastructure projects and major institutional buildings in Chad since 1993.'} />
-                <meta name="keywords" content="Construction Chad, BTP Tchad, Génie Civil Tchad, SANIMEX, Sanimex Tchad" />
-            </Helmet>
+            <SEOHead {...seo} type="website" jsonLd={schema} />
             
             {/* Hero Section */}
             <section className="relative pt-36 pb-32 px-6 min-h-[60vh] flex items-center overflow-hidden">

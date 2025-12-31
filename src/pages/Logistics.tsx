@@ -1,8 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
-import { useEffect, useRef } from 'react';
 import { Truck, Warehouse, Package, Building, Handshake, type LucideIcon } from 'lucide-react';
+import SEOHead from '@/components/SEOHead';
+import { seoMetadata } from '@/data/seo-metadata';
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll';
+import { getServiceSchema } from '@/data/schemas/service';
 
 const services: { Icon: LucideIcon; titleEn: string; titleFr: string; titleAr: string; descEn: string; descFr: string; descAr: string }[] = [
     { Icon: Truck, titleEn: 'Fleet Transport', titleFr: 'Transport par Flotte', titleAr: 'النقل بالأسطول', descEn: 'Our truck fleet moves cargo across Chad and the Sahel region safely and efficiently.', descFr: 'Notre flotte de camions transporte des marchandises à travers le Tchad et la région du Sahel en toute sécurité.', descAr: 'أسطول شاحناتنا ينقل البضائع عبر تشاد ومنطقة الساحل بأمان وكفاءة.' },
@@ -13,31 +15,6 @@ const services: { Icon: LucideIcon; titleEn: string; titleFr: string; titleAr: s
 
 import logisticsHero from '../assets/images/logistics.png';
 
-// Hook for intersection observer animations
-function useRevealOnScroll() {
-    const ref = useRef<HTMLDivElement>(null);
-    
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            },
-            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-        );
-        
-        const elements = ref.current?.querySelectorAll('.reveal');
-        elements?.forEach((el) => observer.observe(el));
-        
-        return () => observer.disconnect();
-    }, []);
-    
-    return ref;
-}
-
 export default function Logistics() {
     const { i18n, t } = useTranslation();
     const lang = i18n.language;
@@ -46,13 +23,13 @@ export default function Logistics() {
     const getTitle = (s: typeof services[0]) => lang === 'ar' ? s.titleAr : lang === 'fr' ? s.titleFr : s.titleEn;
     const getDesc = (s: typeof services[0]) => lang === 'ar' ? s.descAr : lang === 'fr' ? s.descFr : s.descEn;
 
+    // Get SEO metadata and schema for current language
+    const seo = seoMetadata.logistics[lang as keyof typeof seoMetadata.logistics] || seoMetadata.logistics.en;
+    const schema = getServiceSchema('logistics', lang);
+
     return (
         <div ref={containerRef} className="font-serif">
-            <Helmet>
-                <title>{lang === 'ar' ? 'الخدمات اللوجستية والعقارات في تشاد | سانيميكس' : lang === 'fr' ? 'Logistique et Immobilier au Tchad | SANIMEX' : 'Logistics and Real Estate in Chad | SANIMEX'}</title>
-                <meta name="description" content={lang === 'ar' ? 'حلول لوجستية موثوقة وشريك معتمد لليونيسف وإدارة العقارات التجارية في نجامينا، تشاد.' : lang === 'fr' ? 'Solutions logistiques fiables, partenaire certifié UNICEF et gestion immobilière commerciale à N\'Djamena, Tchad.' : 'Reliable logistics solutions, UNICEF certified partner, and commercial property management in N\'Djamena, Chad.'} />
-                <meta name="keywords" content="Logistics Chad, Logistique Tchad, Transport Tchad, Real Estate Chad, Immobilier Tchad, UNICEF Partner Chad, SANIMEX" />
-            </Helmet>
+            <SEOHead {...seo} type="website" jsonLd={schema} />
             
             {/* Hero Section */}
             <section className="relative pt-36 pb-32 px-6 min-h-[60vh] flex items-center overflow-hidden">

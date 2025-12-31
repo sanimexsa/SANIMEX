@@ -51,3 +51,31 @@ Before starting any work, read and follow these skills:
 - `src/data/` - SEO metadata, schemas
 - `tests/` - Playwright E2E tests
 - `skills/` - Project skills documentation
+
+## Sub-Agent and Retry Limits (CRITICAL)
+
+To prevent infinite loops and excessive token consumption:
+
+1. **Maximum 3 retries for any failing command**
+   - If a command (npm install, git push, etc.) fails 3 times, STOP and report the failure
+   - Do NOT keep retrying the same command hoping for a different result
+
+2. **Detect repeated failures**
+   - If you find yourself running the same command more than 3 times, something is wrong
+   - Stop immediately and either:
+     - Try an alternative approach
+     - Report the blocker to the user
+     - Skip that task and continue with others
+
+3. **Network/dependency failures**
+   - `npm install` timing out = network issue, not fixable by retrying
+   - After 2 failed attempts, skip and document what needs manual intervention
+
+4. **Time-boxed operations**
+   - No single task should take more than 10 minutes of repeated attempts
+   - If stuck, commit partial progress and report status
+
+5. **Sub-agent tasks**
+   - Sub-agents MUST follow these same rules
+   - If a sub-agent task involves installation or network ops, set explicit retry limits
+   - Prefer failing fast over infinite retries

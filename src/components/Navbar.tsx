@@ -47,9 +47,9 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-[hsl(var(--sanimex-gray-100))] z-50">
+        <nav role="navigation" aria-label={lang === 'ar' ? 'التنقل الرئيسي' : lang === 'fr' ? 'Navigation principale' : 'Main navigation'} className="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-[hsl(var(--sanimex-gray-100))] z-50">
             <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-                <Link to={homeLink} className="text-2xl font-bold tracking-tighter text-[hsl(var(--sanimex-dark))]" dir="ltr">
+                <Link to={homeLink} className="text-2xl font-bold tracking-tighter text-[hsl(var(--sanimex-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--sanimex-blue-900))] focus-visible:ring-offset-2 rounded" dir="ltr">
                     SANIMEX S.A
                 </Link>
 
@@ -86,8 +86,10 @@ export default function Navbar() {
                     {/* Mobile Menu Toggle */}
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="md:hidden p-2 text-[hsl(var(--sanimex-gray-500))] hover:text-[hsl(var(--sanimex-blue-900))]"
+                        className="md:hidden p-2 text-[hsl(var(--sanimex-gray-500))] hover:text-[hsl(var(--sanimex-blue-900))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--sanimex-blue-900))] focus-visible:ring-offset-2 rounded"
                         aria-label={lang === 'ar' ? 'تبديل القائمة' : lang === 'fr' ? 'Basculer le menu' : 'Toggle menu'}
+                        aria-expanded={isMenuOpen}
+                        aria-controls="mobile-menu"
                     >
                         {isMenuOpen ? (
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
@@ -100,7 +102,7 @@ export default function Navbar() {
 
             {/* Mobile Nav Menu */}
             {isMenuOpen && (
-                <div className="md:hidden bg-white border-b border-[hsl(var(--sanimex-gray-100))] px-6 py-8 space-y-6 slide-down shadow-xl absolute top-full left-0 w-full animate-in fade-in slide-in-from-top-4 duration-300">
+                <div id="mobile-menu" className="md:hidden bg-white border-b border-[hsl(var(--sanimex-gray-100))] px-6 py-8 space-y-6 slide-down shadow-xl absolute top-full left-0 w-full animate-in fade-in slide-in-from-top-4 duration-300">
                     <div className="flex flex-col gap-6 text-lg font-medium">
                         {navItems.map((item) => (
                             <Link
