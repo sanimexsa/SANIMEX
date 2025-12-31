@@ -157,3 +157,4 @@ node_modules
 dist
 .DS_Store
 coverage
+coverage/

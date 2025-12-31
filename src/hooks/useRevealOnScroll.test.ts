@@ -10,8 +10,9 @@ describe('useRevealOnScroll', () => {
         mockObserve = vi.fn();
         mockDisconnect = vi.fn();
 
-        // Create a proper class mock for IntersectionObserver
-        const MockIntersectionObserver = vi.fn(function(this: IntersectionObserver) {
+        // Create a constructor function mock for IntersectionObserver
+        // Must use function (not arrow) to support 'new' keyword
+        const MockIntersectionObserver = vi.fn(function (this: Record<string, unknown>) {
             this.observe = mockObserve;
             this.disconnect = mockDisconnect;
             this.unobserve = vi.fn();
@@ -19,7 +20,7 @@ describe('useRevealOnScroll', () => {
             this.rootMargin = '';
             this.thresholds = [];
             this.takeRecords = vi.fn(() => []);
-        }) as unknown as typeof IntersectionObserver;
+        });
 
         vi.stubGlobal('IntersectionObserver', MockIntersectionObserver);
     });
