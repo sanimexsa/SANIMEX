@@ -61,9 +61,9 @@ export default function Contact() {
             interest: "Interest",
             message: "Message",
             submit: "Send Message",
-            phone: "+235 22 51 49 69",
+            phone: "+235 66 28 66 49",
             address: "BP 492, N'Djamena, Chad",
-            phoneVal: "+235 22 51 49 69",
+            phoneVal: "+235 66 28 66 49",
             addressVal: "BP 492, N'Djamena, Chad",
             acaciaNote: "Acacia Gum Inquiries",
             acaciaNoteSub: "For bulk export quotes or supply agreements, use the form above with your volume requirements.",
@@ -83,7 +83,7 @@ export default function Contact() {
             submit: "Envoyer le Message",
             phone: "Téléphone",
             address: "Adresse",
-            phoneVal: "+235 22 51 49 69",
+            phoneVal: "+235 66 28 66 49",
             addressVal: "BP 492, N'Djamena, Tchad",
             acaciaNote: "Demandes Gomme Arabique",
             acaciaNoteSub: "Pour les devis d'exportation en gros ou les contrats d'approvisionnement, utilisez le formulaire ci-dessus avec vos besoins en volume.",
@@ -103,7 +103,7 @@ export default function Contact() {
             submit: "إرسال الرسالة",
             phone: "الهاتف",
             address: "العنوان",
-            phoneVal: "+٢٣٥ ٢٢ ٥١ ٤٩ ٦٩",
+            phoneVal: "+٢٣٥ ٦٦ ٢٨ ٦٦ ٤٩",
             addressVal: "ص.ب ٤٩٢، انجمينا، تشاد",
             acaciaNote: "استفسارات الصمغ العربي",
             acaciaNoteSub: "لطلبات التصدير بالجملة أو اتفاقيات التوريد، استخدم النموذج أعلاه مع متطلبات الحجم الخاصة بك.",
@@ -187,7 +187,7 @@ export default function Contact() {
                                 <div>
                                     <h3 className="font-bold text-[hsl(var(--sanimex-dark))] mb-1">{text.phone}</h3>
                                     <p className="text-[hsl(var(--sanimex-gray-500))] font-sans" dir="ltr" style={{ textAlign: lang === 'ar' ? 'right' : 'left' }}>
-                                        +235 22 51 49 69
+                                        +235 66 28 66 49
                                     </p>
                                 </div>
                             </div>

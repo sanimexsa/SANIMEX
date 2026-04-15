@@ -54,12 +54,12 @@ export default function Footer() {
                     <img
                         src="/logos/sanimex-logo.png"
                         alt=""
-                        width={40}
-                        height={40}
-                        className="h-10 w-auto mb-3 brightness-0 invert"
+                        width={56}
+                        height={56}
+                        className="h-14 w-auto mb-3"
                         loading="lazy"
                     />
-                    <h3 className="text-white font-bold text-2xl mb-5 tracking-tight">SANIMEX S.A</h3>
+                    <h3 className="text-[hsl(var(--sanimex-red))] font-bold text-2xl mb-5 tracking-tight">SANIMEX S.A</h3>
                     <p className="text-sm leading-relaxed">{content.tagline}</p>
                 </div>
 

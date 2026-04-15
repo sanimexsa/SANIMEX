@@ -54,9 +54,9 @@ export default function Navbar() {
                         <img
                             src="/logos/sanimex-logo.png"
                             alt=""
-                            width={32}
-                            height={32}
-                            className="h-8 w-auto"
+                            width={40}
+                            height={40}
+                            className="h-10 w-auto"
                             loading="eager"
                         />
                         <span className="text-2xl font-bold tracking-tighter text-[hsl(var(--sanimex-red))]">
