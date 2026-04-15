@@ -50,16 +50,18 @@ export default function Footer() {
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[hsl(var(--sanimex-blue-900))]/30 to-transparent" />
             
             <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-14 relative z-10">
-                <div dir="ltr">
-                    <img
-                        src="/logos/sanimex-logo.png"
-                        alt=""
-                        width={56}
-                        height={56}
-                        className="h-14 w-auto mb-3"
-                        loading="lazy"
-                    />
-                    <h3 className="text-[hsl(var(--sanimex-red))] font-bold text-2xl mb-5 tracking-tight">SANIMEX S.A</h3>
+                <div dir="ltr" className="flex flex-col items-start">
+                    <div className="flex flex-col items-center mb-5 w-full">
+                        <img
+                            src="/logos/sanimex-logo.png"
+                            alt=""
+                            width={168}
+                            height={168}
+                            className="h-40 w-auto mb-3"
+                            loading="lazy"
+                        />
+                        <h3 className="text-[hsl(var(--sanimex-red))] font-bold text-2xl tracking-tight">SANIMEX S.A</h3>
+                    </div>
                     <p className="text-sm leading-relaxed">{content.tagline}</p>
                 </div>
 
