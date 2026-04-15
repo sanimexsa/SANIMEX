@@ -52,14 +52,17 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-14 relative z-10">
                 <div dir="ltr" className="flex flex-col items-start">
                     <div className="flex flex-col items-center mb-5 w-full">
-                        <img
-                            src="/logos/sanimex-logo.png"
-                            alt=""
-                            width={168}
-                            height={168}
-                            className="h-40 w-auto mb-1 rounded-full"
-                            loading="lazy"
-                        />
+                        <div className="mb-1 h-40 w-40 overflow-hidden rounded-full">
+                            <img
+                                src="/logos/sanimex-logo.png"
+                                alt=""
+                                width={168}
+                                height={168}
+                                className="h-full w-full object-cover"
+                                loading="lazy"
+                                style={{ clipPath: 'circle(48.75% at 50% 50%)' }}
+                            />
+                        </div>
                         <h3 className="text-[hsl(var(--sanimex-red))] font-bold text-2xl tracking-tight">SANIMEX S.A</h3>
                     </div>
                     <p className="text-sm leading-relaxed">{content.tagline}</p>
