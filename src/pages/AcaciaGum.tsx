@@ -7,15 +7,15 @@ import { useRevealOnScroll } from '@/hooks/useRevealOnScroll';
 import { getAcaciaGumProductSchema } from '@/data/schemas/product';
 
 const stats = [
-    { value: '20+', valueAr: '+٢٠', labelEn: 'Tonnes/Year Capacity', labelFr: 'Tonnes/An Capacité', labelAr: 'طن/سنة القدرة' },
-    { value: '10+', valueAr: '+١٠', labelEn: 'Years Export Experience', labelFr: 'Années d\'Expérience Export', labelAr: 'سنوات خبرة التصدير' },
-    { value: '3rd', valueFr: '3e', valueAr: '٣', labelEn: 'Largest Exporter (Chad)', labelFr: 'Plus Grand Exportateur (Tchad)', labelAr: 'أكبر مصدر (تشاد)' },
+    { value: '3000+', valueAr: '+٣٠٠٠', labelEn: 'Tonnes/Year Capacity', labelFr: 'Tonnes/An Capacité', labelAr: 'طن/سنة القدرة' },
+    { value: '30+', valueAr: '+٣٠', labelEn: 'Years Export Experience', labelFr: 'Années d\'Expérience Export', labelAr: 'سنوات خبرة التصدير' },
+    { value: '2nd', valueFr: '2e', valueAr: '٢', labelEn: 'Largest Exporter (Chad)', labelFr: 'Plus Grand Exportateur (Tchad)', labelAr: 'أكبر مصدر (تشاد)' },
 ];
 
 const advantages: { Icon: LucideIcon; titleEn: string; titleFr: string; titleAr: string; descEn: string; descFr: string; descAr: string }[] = [
-    { Icon: CheckCircle2, titleEn: 'Direct from Chad', titleFr: 'Direct du Tchad', titleAr: 'مباشر من تشاد', descEn: 'Chad is the 3rd largest acacia gum exporter globally. Source directly from producers.', descFr: 'Le Tchad est le 3ème plus grand exportateur de gomme arabique au monde. Approvisionnez-vous directement.', descAr: 'تشاد هي ثالث أكبر مصدر للصمغ العربي عالمياً. احصل على المنتج مباشرة من المنتجين.' },
+    { Icon: CheckCircle2, titleEn: 'Direct from Chad', titleFr: 'Direct du Tchad', titleAr: 'مباشر من تشاد', descEn: 'Chad is the 2nd largest acacia gum exporter globally. Source directly from producers.', descFr: 'Le Tchad est le 2ème plus grand exportateur de gomme arabique au monde. Approvisionnez-vous directement.', descAr: 'تشاد هي ثاني أكبر مصدر للصمغ العربي عالمياً. احصل على المنتج مباشرة من المنتجين.' },
     { Icon: Ship, titleEn: 'No Intermediaries', titleFr: 'Sans Intermédiaires', titleAr: 'بدون وسطاء', descEn: 'Direct export to your facility. Simplified supply chain.', descFr: 'Exportation directe vers vos installations. Chaîne d\'approvisionnement simplifiée.', descAr: 'تصدير مباشر إلى منشأتك. سلسلة توريد مبسطة.' },
-    { Icon: ClipboardList, titleEn: 'Proven Track Record', titleFr: 'Historique Éprouvé', titleAr: 'سجل حافل', descEn: '10+ years supplying to Alland & Robert (France).', descFr: '10+ ans de fourniture à Alland & Robert (France).', descAr: 'أكثر من 10 سنوات من التزويد لشركة ألاند وروبرت (فرنسا).' },
+    { Icon: ClipboardList, titleEn: 'Proven Track Record', titleFr: 'Historique Éprouvé', titleAr: 'سجل حافل', descEn: '20+ years supplying to Alland & Robert (France).', descFr: '20+ ans de fourniture à Alland & Robert (France).', descAr: 'أكثر من 20 سنة من التزويد لشركة ألاند وروبرت (فرنسا).' },
     { Icon: Factory, titleEn: 'Consistent Quality', titleFr: 'Qualité Constante', titleAr: 'جودة متسقة', descEn: 'High-grade Acacia Senegal and Acacia Seyal varieties.', descFr: 'Variétés de haute qualité Acacia Senegal et Acacia Seyal.', descAr: 'أصناف عالية الجودة من أكاسيا السنغال وأكاسيا سيال.' },
 ];
 
@@ -36,7 +36,7 @@ export default function AcaciaGum() {
         en: {
             subtitle: 'Acacia Gum Export',
             title: 'High-Quality Acacia Gum, Direct from Chad',
-            description: 'Chad is the world\'s 3rd largest acacia gum exporter. Sanimex has 10+ years of export experience, including supplying Alland & Robert, the global leader in acacia gum processing.',
+            description: 'Chad is the world\'s 2nd largest acacia gum exporter. Sanimex has 30+ years of export experience, including supplying Alland & Robert, the global leader in acacia gum processing.',
             cta: 'Request a Quote',
             whyTitle: 'Why Source from Sanimex?',
             whySubtitle: 'A trusted exporter with institutional partnerships and proven supply chain.',
@@ -50,7 +50,7 @@ export default function AcaciaGum() {
         fr: {
             subtitle: 'Export de Gomme Arabique',
             title: 'Gomme Arabique de Haute Qualité, Directe du Tchad',
-            description: 'Le Tchad est le 3ème plus grand exportateur de gomme arabique au monde. Sanimex a plus de 10 ans d\'expérience d\'exportation, y compris la fourniture à Alland & Robert.',
+            description: 'Le Tchad est le 2ème plus grand exportateur de gomme arabique au monde. Sanimex a plus de 30 ans d\'expérience d\'exportation, y compris la fourniture à Alland & Robert.',
             cta: 'Demander un Devis',
             whyTitle: 'Pourquoi Choisir Sanimex ?',
             whySubtitle: 'Un exportateur de confiance avec des partenariats institutionnels et une chaîne d\'approvisionnement éprouvée.',
@@ -64,7 +64,7 @@ export default function AcaciaGum() {
         ar: {
             subtitle: 'تصدير الصمغ العربي',
             title: 'صمغ عربي عالي الجودة، مباشر من تشاد',
-            description: 'تشاد هي ثالث أكبر مصدر للصمغ العربي في العالم. تمتلك سانيمكس أكثر من 10 سنوات من الخبرة في التصدير، بما في ذلك التوريد لشركة ألاند وروبرت.',
+            description: 'تشاد هي ثاني أكبر مصدر للصمغ العربي في العالم. تمتلك سانيمكس أكثر من 30 سنة من الخبرة في التصدير، بما في ذلك التوريد لشركة ألاند وروبرت.',
             cta: 'اطلب عرض سعر',
             whyTitle: 'لماذا تختار سانيمكس؟',
             whySubtitle: 'مصدر موثوق مع شراكات مؤسسية وسلسلة توريد مثبتة.',

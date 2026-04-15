@@ -15,8 +15,7 @@ export default function Footer() {
             acaciaGum: "Acacia Gum Export",
             construction: "Construction",
             logistics: "Logistics & Warehousing",
-            copyright: "© 1993-2025 Sanimex S.A. All Rights Reserved.",
-            phone: "+235 22 51 49 69",
+            copyright: "© 1993-2026 Sanimex S.A. All Rights Reserved.",
             address: "BP 492, N'Djamena, Chad"
         },
         fr: {
@@ -27,8 +26,7 @@ export default function Footer() {
             acaciaGum: "Export de Gomme Arabique",
             construction: "Construction",
             logistics: "Logistique & Entreposage",
-            copyright: "© 1993-2025 Sanimex S.A. Tous Droits Réservés.",
-            phone: "+235 22 51 49 69",
+            copyright: "© 1993-2026 Sanimex S.A. Tous Droits Réservés.",
             address: "BP 492, N'Djamena, Tchad"
         },
         ar: {
@@ -39,8 +37,7 @@ export default function Footer() {
             acaciaGum: "تصدير الصمغ العربي",
             construction: "البناء",
             logistics: "الخدمات اللوجستية والتخزين",
-            copyright: "© 1993-2025 سانيمكس ش.م. جميع الحقوق محفوظة.",
-            phone: "+٢٣٥ ٢٢ ٥١ ٤٩ ٦٩",
+            copyright: "© 1993-2026 سانيمكس ش.م. جميع الحقوق محفوظة.",
             address: "ص.ب ٤٩٢، انجمينا، تشاد"
         }
     };
@@ -53,8 +50,16 @@ export default function Footer() {
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[hsl(var(--sanimex-blue-900))]/30 to-transparent" />
             
             <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-14 relative z-10">
-                <div>
-                    <h3 className="text-white font-bold text-2xl mb-5 tracking-tight" dir="ltr">SANIMEX S.A</h3>
+                <div dir="ltr">
+                    <img
+                        src="/logos/sanimex-logo.png"
+                        alt=""
+                        width={40}
+                        height={40}
+                        className="h-10 w-auto mb-3 brightness-0 invert"
+                        loading="lazy"
+                    />
+                    <h3 className="text-white font-bold text-2xl mb-5 tracking-tight">SANIMEX S.A</h3>
                     <p className="text-sm leading-relaxed">{content.tagline}</p>
                 </div>
 
@@ -87,7 +92,6 @@ export default function Footer() {
                                 {content.sendMessage}
                             </Link>
                         </li>
-                        <li dir="ltr" className={lang === 'ar' ? 'text-right' : 'text-left'}>{content.phone}</li>
                         <li className={lang === 'ar' ? 'text-right' : 'text-left'}>
                             {lang === 'ar' ? (
                                 <><span dir="rtl">ص.ب</span> <span dir="ltr">492</span><span dir="rtl">، انجمينا، تشاد</span></>

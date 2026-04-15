@@ -33,6 +33,7 @@ html {
     --sanimex-gray-300: 0 0% 75%;
     --sanimex-gray-100: 0 0% 90%;
     --sanimex-off-white: 40 20% 98%;
+    --sanimex-red: 0 78% 40%;
 
     /* Shadcn defaults mapped to SANIMEX */
     --background: 40 20% 98%;

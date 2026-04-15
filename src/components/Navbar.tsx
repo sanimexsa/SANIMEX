@@ -49,8 +49,20 @@ export default function Navbar() {
     return (
         <nav role="navigation" aria-label={lang === 'ar' ? 'التنقل الرئيسي' : lang === 'fr' ? 'Navigation principale' : 'Main navigation'} className="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-[hsl(var(--sanimex-gray-100))] z-50">
             <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-                <Link to={homeLink} className="text-2xl font-bold tracking-tighter text-[hsl(var(--sanimex-dark))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--sanimex-blue-900))] focus-visible:ring-offset-2 rounded" dir="ltr">
-                    SANIMEX S.A
+                <Link to={homeLink} className="focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--sanimex-blue-900))] focus-visible:ring-offset-2 rounded" dir="ltr">
+                    <span className="flex flex-row items-center gap-2" dir="ltr">
+                        <img
+                            src="/logos/sanimex-logo.png"
+                            alt=""
+                            width={32}
+                            height={32}
+                            className="h-8 w-auto"
+                            loading="eager"
+                        />
+                        <span className="text-2xl font-bold tracking-tighter text-[hsl(var(--sanimex-red))]">
+                            SANIMEX S.A
+                        </span>
+                    </span>
                 </Link>
 
                 {/* Desktop Nav */}

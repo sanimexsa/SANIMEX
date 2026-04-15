@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-import { Truck, Warehouse, Package, Building, Handshake, type LucideIcon } from 'lucide-react';
+import { Truck, Warehouse, Building, type LucideIcon } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { seoMetadata } from '@/data/seo-metadata';
 import { useRevealOnScroll } from '@/hooks/useRevealOnScroll';
@@ -9,14 +8,13 @@ import { getServiceSchema } from '@/data/schemas/service';
 const services: { Icon: LucideIcon; titleEn: string; titleFr: string; titleAr: string; descEn: string; descFr: string; descAr: string }[] = [
     { Icon: Truck, titleEn: 'Fleet Transport', titleFr: 'Transport par Flotte', titleAr: 'النقل بالأسطول', descEn: 'Our truck fleet moves cargo across Chad and the Sahel region safely and efficiently.', descFr: 'Notre flotte de camions transporte des marchandises à travers le Tchad et la région du Sahel en toute sécurité.', descAr: 'أسطول شاحناتنا ينقل البضائع عبر تشاد ومنطقة الساحل بأمان وكفاءة.' },
     { Icon: Warehouse, titleEn: 'Warehousing', titleFr: 'Entreposage', titleAr: 'التخزين', descEn: 'Strategic warehouse facilities across Chad for secure storage and distribution.', descFr: 'Installations d\'entreposage stratégiques à travers le Tchad pour le stockage et la distribution sécurisés.', descAr: 'مرافق تخزين استراتيجية في جميع أنحاء تشاد للتخزين والتوزيع الآمن.' },
-    { Icon: Package, titleEn: 'UNICEF Partnership', titleFr: 'Partenariat UNICEF', titleAr: 'شراكة اليونيسف', descEn: '10+ years as a certified logistics partner for UNICEF in landlocked regions.', descFr: '10+ ans en tant que partenaire logistique certifié pour l\'UNICEF dans les régions enclavées.', descAr: 'أكثر من 10 سنوات كشريك لوجستي معتمد لليونيسف في المناطق الحبيسة.' },
     { Icon: Building, titleEn: 'Property Rentals', titleFr: 'Location de Propriétés', titleAr: 'تأجير العقارات', descEn: 'Commercial and residential rental properties across N\'Djamena.', descFr: 'Propriétés commerciales et résidentielles à louer à N\'Djamena.', descAr: 'عقارات تجارية وسكنية للإيجار في نجامينا.' },
 ];
 
 import logisticsHero from '../assets/images/logistics.png';
 
 export default function Logistics() {
-    const { i18n, t } = useTranslation();
+    const { i18n } = useTranslation();
     const lang = i18n.language;
     const containerRef = useRevealOnScroll();
 
@@ -52,7 +50,7 @@ export default function Logistics() {
             <section className="reveal py-24 px-6 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[hsl(var(--sanimex-dark))]">{lang === 'ar' ? 'قدراتنا' : lang === 'fr' ? 'Nos Capacités' : 'Our Capabilities'}</h2>
-                    <div className="grid md:grid-cols-2 gap-6">
+                    <div className="grid md:grid-cols-3 gap-6">
                         {services.map((service, i) => (
                             <div 
                                 key={service.titleEn} 
@@ -70,25 +68,6 @@ export default function Logistics() {
                 </div>
             </section>
 
-            {/* UNICEF Section */}
-            <section className="reveal py-28 px-6 bg-[hsl(var(--sanimex-green-700))] text-white">
-                <div className="max-w-4xl mx-auto text-center">
-                    <Handshake className="w-20 h-20 mx-auto mb-8 text-white" strokeWidth={1.5} />
-                    <h2 className="text-4xl md:text-5xl font-bold mb-8">{lang === 'ar' ? 'شريك معتمد لليونيسف' : lang === 'fr' ? 'Partenaire Certifié UNICEF' : 'UNICEF Certified Partner'}</h2>
-                    <p className="text-xl text-green-100 font-sans max-w-2xl mx-auto leading-relaxed">
-                        {lang === 'ar' ? 'لأكثر من 10 سنوات، قدمنا الدعم اللوجستي للميل الأخير لعمليات اليونيسف في تشاد، نوصل الإمدادات الأساسية إلى بعض المناطق الأكثر عزلة في أفريقيا.' : lang === 'fr' ? 'Depuis plus de 10 ans, nous fournissons un soutien logistique du dernier kilomètre pour les opérations de l\'UNICEF au Tchad, livrant des fournitures essentielles dans certaines des régions les plus reculées d\'Afrique.' : 'For over 10 years, we\'ve provided last-mile logistics support for UNICEF operations in Chad, delivering essential supplies to some of the most remote regions in Africa.'}
-                    </p>
-                    <Link 
-                        to="/contact" 
-                        className="group inline-flex items-center gap-3 mt-10 bg-white text-[hsl(var(--sanimex-green-700))] px-10 py-5 rounded-full text-lg font-semibold hover:bg-[hsl(var(--sanimex-cream))] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.3)]"
-                    >
-                        {t('contact')}
-                        <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </Link>
-                </div>
-            </section>
         </div>
     );
 }
