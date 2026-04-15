@@ -31,7 +31,7 @@ export function getLocalBusinessSchema(lang: string) {
       opens: '08:00',
       closes: '17:00',
     },
-    telephone: '+235-22-51-49-69',
+    telephone: '+235-66-28-66-49',
     priceRange: '$$$',
   };
 }

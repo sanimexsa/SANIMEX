@@ -14,7 +14,7 @@ export function getOrganizationSchema(lang: string) {
     name: 'SANIMEX S.A',
     alternateName: lang === 'ar' ? 'سانيميكس' : 'SANIMEX',
     url: `https://sanimexsa.com/${lang}/`,
-    logo: 'https://sanimexsa.com/logo-sanimex.png',
+    logo: 'https://sanimexsa.com/logos/sanimex-logo.png',
     foundingDate: '1993',
     description,
     address: {
@@ -25,7 +25,7 @@ export function getOrganizationSchema(lang: string) {
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+235-22-51-49-69',
+      telephone: '+235-66-28-66-49',
       email: 'aa@sanimexsa.com',
       contactType: 'customer service',
       availableLanguage: ['en', 'fr', 'ar'],
