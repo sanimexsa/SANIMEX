@@ -27,7 +27,7 @@ describe('getOrganizationSchema', () => {
 
     it('has correct contact information', () => {
         const schema = getOrganizationSchema('en');
-        expect(schema.contactPoint.telephone).toBe('+235-22-51-49-69');
+        expect(schema.contactPoint.telephone).toBe('+235-66-28-66-49');
         expect(schema.contactPoint.email).toBe('aa@sanimexsa.com');
     });
 
