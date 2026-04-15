@@ -57,9 +57,8 @@ export default function Footer() {
                             alt=""
                             width={168}
                             height={168}
-                            className="h-40 w-auto mb-1"
+                            className="h-40 w-auto mb-1 rounded-full"
                             loading="lazy"
-                            style={{ mixBlendMode: 'lighten' }}
                         />
                         <h3 className="text-[hsl(var(--sanimex-red))] font-bold text-2xl tracking-tight">SANIMEX S.A</h3>
                     </div>
