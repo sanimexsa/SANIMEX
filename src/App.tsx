@@ -7,6 +7,7 @@ import AcaciaGum from './pages/AcaciaGum';
 import Construction from './pages/Construction';
 import Logistics from './pages/Logistics';
 import Contact from './pages/Contact';
+import LogoLab from './pages/LogoLab';
 import ScrollToTop from './components/ScrollToTop';
 import LanguageWrapper from './components/LanguageWrapper';
 import LanguageRedirect from './components/LanguageRedirect';
@@ -22,6 +23,7 @@ function App() {
           <Navbar />
           <main id="main-content" className="flex-grow" tabIndex={-1}>
             <Routes>
+              <Route path="/logo-lab" element={<LogoLab />} />
               {/* Language-prefixed routes */}
               <Route path="/:lang" element={<LanguageWrapper />}>
                 <Route index element={<Home />} />

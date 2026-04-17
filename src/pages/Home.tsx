@@ -35,7 +35,7 @@ const partners: Partner[] = [
         name: 'UNICEF',
         nameAr: 'اليونيسف',
         nameFr: 'UNICEF',
-        logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Logo_of_UNICEF.svg/200px-Logo_of_UNICEF.svg.png'
+        logo: '/logos/unicef.svg'
     },
     {
         name: 'World Bank',
@@ -241,4 +241,3 @@ export default function Home() {
         </div>
     );
 }
-

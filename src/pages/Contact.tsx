@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { CheckCircle2, Phone, MapPin, TreeDeciduous } from 'lucide-react';
+import { CheckCircle2, Phone, MapPin } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { seoMetadata } from '@/data/seo-metadata';
 import { useRevealOnScroll } from '@/hooks/useRevealOnScroll';
@@ -65,8 +65,6 @@ export default function Contact() {
             address: "Address",
             phoneVal: "+235 66 28 66 49",
             addressVal: "BP 492, N'Djamena, Chad",
-            acaciaNote: "Acacia Gum Inquiries",
-            acaciaNoteSub: "For bulk export quotes or supply agreements, use the form above with your volume requirements.",
             interests: ["Acacia Gum Export", "Construction Services", "Logistics & Warehousing", "Property Rentals", "Other"]
         },
         fr: {
@@ -85,8 +83,6 @@ export default function Contact() {
             address: "Adresse",
             phoneVal: "+235 66 28 66 49",
             addressVal: "BP 492, N'Djamena, Tchad",
-            acaciaNote: "Demandes Gomme Arabique",
-            acaciaNoteSub: "Pour les devis d'exportation en gros ou les contrats d'approvisionnement, utilisez le formulaire ci-dessus avec vos besoins en volume.",
             interests: ["Export Gomme Arabique", "Services de Construction", "Logistique & Entreposage", "Location de Propriétés", "Autre"]
         },
         ar: {
@@ -105,8 +101,6 @@ export default function Contact() {
             address: "العنوان",
             phoneVal: "+٢٣٥ ٦٦ ٢٨ ٦٦ ٤٩",
             addressVal: "ص.ب ٤٩٢، انجمينا، تشاد",
-            acaciaNote: "استفسارات الصمغ العربي",
-            acaciaNoteSub: "لطلبات التصدير بالجملة أو اتفاقيات التوريد، استخدم النموذج أعلاه مع متطلبات الحجم الخاصة بك.",
             interests: ["تصدير الصمغ العربي", "خدمات البناء", "الخدمات اللوجستية والتخزين", "تأجير العقارات", "أخرى"]
         }
     };
@@ -204,12 +198,6 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        <div className="mt-10 p-8 bg-gradient-to-br from-[hsl(var(--sanimex-sand))]/20 to-[hsl(var(--sanimex-terracotta))]/10 rounded-3xl border border-[hsl(var(--sanimex-sand))]/30">
-                            <h3 className="font-bold text-[hsl(var(--sanimex-terracotta))] mb-3 flex items-center gap-2">
-                                <TreeDeciduous className="w-6 h-6" strokeWidth={1.5} /> {text.acaciaNote}
-                            </h3>
-                            <p className="text-[hsl(var(--sanimex-gray-500))] text-sm font-sans leading-relaxed">{text.acaciaNoteSub}</p>
-                        </div>
                     </div>
                 </div>
             </section>

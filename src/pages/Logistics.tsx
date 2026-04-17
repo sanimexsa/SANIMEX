@@ -54,10 +54,10 @@ export default function Logistics() {
                         {services.map((service, i) => (
                             <div 
                                 key={service.titleEn} 
-                                className="reveal group flex gap-5 p-8 bg-gradient-to-br from-[hsl(var(--sanimex-green-700))]/5 to-transparent rounded-3xl border border-[hsl(var(--sanimex-green-700))]/10 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                                className="reveal group flex gap-5 p-8 bg-[hsl(var(--sanimex-cream))] rounded-3xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                                 style={{ animationDelay: `${i * 100}ms` }}
                             >
-                                <service.Icon className="w-12 h-12 text-[hsl(var(--sanimex-gray-500))] group-hover:text-[hsl(var(--sanimex-green-700))] transition-all duration-300" strokeWidth={1.5} />
+                                <service.Icon className="w-12 h-12 text-[hsl(var(--sanimex-gray-500))] group-hover:text-[hsl(var(--sanimex-blue-900))] transition-all duration-300" strokeWidth={1.5} />
                                 <div>
                                     <h3 className="text-xl font-bold mb-3 text-[hsl(var(--sanimex-dark))]">{getTitle(service)}</h3>
                                     <p className="text-[hsl(var(--sanimex-gray-500))] font-sans leading-relaxed">{getDesc(service)}</p>
